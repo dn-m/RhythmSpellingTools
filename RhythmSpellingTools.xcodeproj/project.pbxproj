@@ -11,6 +11,10 @@
 		079674B81E3FEDEC006B1F6F /* Beaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674B61E3FEDEC006B1F6F /* Beaming.swift */; };
 		079674BA1E3FEF15006B1F6F /* BeamedRhythm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674B91E3FEF15006B1F6F /* BeamedRhythm.swift */; };
 		079674BB1E3FEF15006B1F6F /* BeamedRhythm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674B91E3FEF15006B1F6F /* BeamedRhythm.swift */; };
+		079674BD1E3FEFC3006B1F6F /* BeamingTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674BC1E3FEFC3006B1F6F /* BeamingTree.swift */; };
+		079674BE1E3FEFC3006B1F6F /* BeamingTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674BC1E3FEFC3006B1F6F /* BeamingTree.swift */; };
+		079674C31E3FFF8A006B1F6F /* BeamingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674C21E3FFF8A006B1F6F /* BeamingTests.swift */; };
+		079674C41E3FFF8A006B1F6F /* BeamingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674C21E3FFF8A006B1F6F /* BeamingTests.swift */; };
 		3ECCB6FE9955D1525FCC360D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D5872377F890B436A97FB5 /* Cocoa.framework */; };
 		534FFB129E2971F31E6BAE0F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D5872377F890B436A97FB5 /* Cocoa.framework */; };
 		824859F55BC6D08D4C67F874 /* RhythmSpellingTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A260833E626B4BC75F64007 /* RhythmSpellingTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,6 +43,8 @@
 /* Begin PBXFileReference section */
 		079674B61E3FEDEC006B1F6F /* Beaming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Beaming.swift; path = RhythmSpellingTools/Beaming.swift; sourceTree = "<group>"; };
 		079674B91E3FEF15006B1F6F /* BeamedRhythm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeamedRhythm.swift; path = RhythmSpellingTools/BeamedRhythm.swift; sourceTree = "<group>"; };
+		079674BC1E3FEFC3006B1F6F /* BeamingTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeamingTree.swift; path = RhythmSpellingTools/BeamingTree.swift; sourceTree = "<group>"; };
+		079674C21E3FFF8A006B1F6F /* BeamingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeamingTests.swift; path = RhythmSpellingTools/BeamingTests.swift; sourceTree = "<group>"; };
 		0A260833E626B4BC75F64007 /* RhythmSpellingTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RhythmSpellingTools.h; path = RhythmSpellingTools/RhythmSpellingTools.h; sourceTree = "<group>"; };
 		0EEDFEDD097C2144197C8E43 /* RhythmSpellingTools macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RhythmSpellingTools macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		245135C41B52F96A08429FD3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -112,6 +118,7 @@
 				A7D064E42D915C220CC05E3F /* Supporting Files */,
 				079674B61E3FEDEC006B1F6F /* Beaming.swift */,
 				079674B91E3FEF15006B1F6F /* BeamedRhythm.swift */,
+				079674BC1E3FEFC3006B1F6F /* BeamingTree.swift */,
 			);
 			name = RhythmSpellingTools;
 			sourceTree = "<group>";
@@ -147,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				985C718BC7DD29AF4385A6CB /* Supporting Files */,
+				079674C21E3FFF8A006B1F6F /* BeamingTests.swift */,
 			);
 			name = RhythmSpellingToolsTests;
 			sourceTree = "<group>";
@@ -268,6 +276,12 @@
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				TargetAttributes = {
+					01FDB607437C65F140F5DA58 = {
+						LastSwiftMigration = 0820;
+					};
+					7A0F227CCDADF85B7FBC016A = {
+						LastSwiftMigration = 0820;
+					};
 					BF196E13356832B789CF2F03 = {
 						LastSwiftMigration = 0820;
 					};
@@ -338,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				079674C41E3FFF8A006B1F6F /* BeamingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				079674C31E3FFF8A006B1F6F /* BeamingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				079674BE1E3FEFC3006B1F6F /* BeamingTree.swift in Sources */,
 				079674B81E3FEDEC006B1F6F /* Beaming.swift in Sources */,
 				079674BB1E3FEF15006B1F6F /* BeamedRhythm.swift in Sources */,
 			);
@@ -361,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				079674BD1E3FEFC3006B1F6F /* BeamingTree.swift in Sources */,
 				079674B71E3FEDEC006B1F6F /* Beaming.swift in Sources */,
 				079674BA1E3FEF15006B1F6F /* BeamedRhythm.swift in Sources */,
 			);
@@ -388,6 +406,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -399,6 +418,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -406,6 +426,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -417,6 +438,8 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -591,6 +614,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -602,6 +626,8 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -653,6 +679,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -664,6 +691,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
