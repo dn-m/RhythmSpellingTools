@@ -1,0 +1,715 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		079674B71E3FEDEC006B1F6F /* Beaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674B61E3FEDEC006B1F6F /* Beaming.swift */; };
+		079674B81E3FEDEC006B1F6F /* Beaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674B61E3FEDEC006B1F6F /* Beaming.swift */; };
+		3ECCB6FE9955D1525FCC360D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D5872377F890B436A97FB5 /* Cocoa.framework */; };
+		534FFB129E2971F31E6BAE0F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D5872377F890B436A97FB5 /* Cocoa.framework */; };
+		824859F55BC6D08D4C67F874 /* RhythmSpellingTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A260833E626B4BC75F64007 /* RhythmSpellingTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D04399702027E2B3ED8CD7E /* RhythmSpellingTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A260833E626B4BC75F64007 /* RhythmSpellingTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD65967314907DD43F99FAEB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245135C41B52F96A08429FD3 /* Foundation.framework */; };
+		E3E4CB938A9275351C037DCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245135C41B52F96A08429FD3 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B6FC6DFC8E58F2370D1125EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83092F3CA107776788D851A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF196E13356832B789CF2F03;
+			remoteInfo = "RhythmSpellingTools iOS";
+		};
+		E0EBB15235F8F394E4CF5EC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83092F3CA107776788D851A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FECFAF8CF3151BDD766A355B;
+			remoteInfo = "RhythmSpellingTools macOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		079674B61E3FEDEC006B1F6F /* Beaming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Beaming.swift; path = RhythmSpellingTools/Beaming.swift; sourceTree = "<group>"; };
+		0A260833E626B4BC75F64007 /* RhythmSpellingTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RhythmSpellingTools.h; path = RhythmSpellingTools/RhythmSpellingTools.h; sourceTree = "<group>"; };
+		0EEDFEDD097C2144197C8E43 /* RhythmSpellingTools macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RhythmSpellingTools macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		245135C41B52F96A08429FD3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		286DF2F7CD489AF67B175A04 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = RhythmSpellingToolsTests/Info.plist; sourceTree = "<group>"; };
+		612F5BF3F2C4CBD0111F7B0C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = RhythmSpellingTools/Info.plist; sourceTree = "<group>"; };
+		66D5872377F890B436A97FB5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		B52AC350D1B69D282D2BE1BA /* RhythmSpellingTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RhythmSpellingTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C431B5A58C616D5166BE4F4A /* RhythmSpellingTools iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RhythmSpellingTools iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D64C908616E1E87C42A9ABA1 /* RhythmSpellingTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RhythmSpellingTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49E855774476F05C388578A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3E4CB938A9275351C037DCB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63F82BF5B36830DC603B4A57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				534FFB129E2971F31E6BAE0F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		766878D264A88FAEBE360BA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD65967314907DD43F99FAEB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC7AF37A28499D6D42104A79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ECCB6FE9955D1525FCC360D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F5198D8D7B892FA954D904B = {
+			isa = PBXGroup;
+			children = (
+				9C0EAF1E49914BF8873A0A3F /* Products */,
+				31CEE13F1066CE18AFC31FF0 /* Frameworks */,
+				404304D3789D6BFECB8D24BB /* RhythmSpellingTools */,
+				9E54326E896F64E52B0764AB /* RhythmSpellingToolsTests */,
+				0A260833E626B4BC75F64007 /* RhythmSpellingTools.h */,
+			);
+			sourceTree = "<group>";
+		};
+		31CEE13F1066CE18AFC31FF0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD03511AD2FDD66125D39060 /* iOS */,
+				61944C0A30D77F2804BA9516 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		404304D3789D6BFECB8D24BB /* RhythmSpellingTools */ = {
+			isa = PBXGroup;
+			children = (
+				A7D064E42D915C220CC05E3F /* Supporting Files */,
+				079674B61E3FEDEC006B1F6F /* Beaming.swift */,
+			);
+			name = RhythmSpellingTools;
+			sourceTree = "<group>";
+		};
+		61944C0A30D77F2804BA9516 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				66D5872377F890B436A97FB5 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		985C718BC7DD29AF4385A6CB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				286DF2F7CD489AF67B175A04 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9C0EAF1E49914BF8873A0A3F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D64C908616E1E87C42A9ABA1 /* RhythmSpellingTools.framework */,
+				C431B5A58C616D5166BE4F4A /* RhythmSpellingTools iOS Tests.xctest */,
+				B52AC350D1B69D282D2BE1BA /* RhythmSpellingTools.framework */,
+				0EEDFEDD097C2144197C8E43 /* RhythmSpellingTools macOS Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9E54326E896F64E52B0764AB /* RhythmSpellingToolsTests */ = {
+			isa = PBXGroup;
+			children = (
+				985C718BC7DD29AF4385A6CB /* Supporting Files */,
+			);
+			name = RhythmSpellingToolsTests;
+			sourceTree = "<group>";
+		};
+		A7D064E42D915C220CC05E3F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				612F5BF3F2C4CBD0111F7B0C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD03511AD2FDD66125D39060 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				245135C41B52F96A08429FD3 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7299709288A9C75CBDA79B9C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				824859F55BC6D08D4C67F874 /* RhythmSpellingTools.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD4D44AEFCC2231DD76BB475 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D04399702027E2B3ED8CD7E /* RhythmSpellingTools.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		01FDB607437C65F140F5DA58 /* RhythmSpellingTools macOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4B0FE54CF9292CA133556B9 /* Build configuration list for PBXNativeTarget "RhythmSpellingTools macOS Tests" */;
+			buildPhases = (
+				1AD32F462485CF95FE6C2784 /* Sources */,
+				63F82BF5B36830DC603B4A57 /* Frameworks */,
+				DBE3F275AB971CFA83C53011 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B66A0093CE107F2E2F8155E8 /* PBXTargetDependency */,
+			);
+			name = "RhythmSpellingTools macOS Tests";
+			productName = "RhythmSpellingTools macOS Tests";
+			productReference = 0EEDFEDD097C2144197C8E43 /* RhythmSpellingTools macOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7A0F227CCDADF85B7FBC016A /* RhythmSpellingTools iOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09C35707186A011CD44D3E0B /* Build configuration list for PBXNativeTarget "RhythmSpellingTools iOS Tests" */;
+			buildPhases = (
+				57738EED2C5C6222818BE3E0 /* Sources */,
+				766878D264A88FAEBE360BA0 /* Frameworks */,
+				6A45478DA9359732887C618F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				024B20D6CB3AB0BC28518300 /* PBXTargetDependency */,
+			);
+			name = "RhythmSpellingTools iOS Tests";
+			productName = "RhythmSpellingTools iOS Tests";
+			productReference = C431B5A58C616D5166BE4F4A /* RhythmSpellingTools iOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF196E13356832B789CF2F03 /* RhythmSpellingTools iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8260788D106EC4EE84A77E90 /* Build configuration list for PBXNativeTarget "RhythmSpellingTools iOS" */;
+			buildPhases = (
+				BCD319A9C3A35E2E371F2E4F /* Sources */,
+				49E855774476F05C388578A5 /* Frameworks */,
+				DD4D44AEFCC2231DD76BB475 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RhythmSpellingTools iOS";
+			productName = "RhythmSpellingTools iOS";
+			productReference = D64C908616E1E87C42A9ABA1 /* RhythmSpellingTools.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FECFAF8CF3151BDD766A355B /* RhythmSpellingTools macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B9A37316A69D8FCCF4C2D8B /* Build configuration list for PBXNativeTarget "RhythmSpellingTools macOS" */;
+			buildPhases = (
+				8AB8FB4CCDB376F14C2104FE /* Sources */,
+				AC7AF37A28499D6D42104A79 /* Frameworks */,
+				7299709288A9C75CBDA79B9C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RhythmSpellingTools macOS";
+			productName = "RhythmSpellingTools macOS";
+			productReference = B52AC350D1B69D282D2BE1BA /* RhythmSpellingTools.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83092F3CA107776788D851A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					BF196E13356832B789CF2F03 = {
+						LastSwiftMigration = 0820;
+					};
+					FECFAF8CF3151BDD766A355B = {
+						LastSwiftMigration = 0820;
+					};
+				};
+			};
+			buildConfigurationList = D89F08487A4D889247275E94 /* Build configuration list for PBXProject "RhythmSpellingTools" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0F5198D8D7B892FA954D904B;
+			productRefGroup = 9C0EAF1E49914BF8873A0A3F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF196E13356832B789CF2F03 /* RhythmSpellingTools iOS */,
+				7A0F227CCDADF85B7FBC016A /* RhythmSpellingTools iOS Tests */,
+				FECFAF8CF3151BDD766A355B /* RhythmSpellingTools macOS */,
+				01FDB607437C65F140F5DA58 /* RhythmSpellingTools macOS Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A45478DA9359732887C618F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ArithmeticTools.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Collections.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/IntervalTools.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Rhythm.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		DBE3F275AB971CFA83C53011 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/ArithmeticTools.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/Collections.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/IntervalTools.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/Rhythm.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1AD32F462485CF95FE6C2784 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57738EED2C5C6222818BE3E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AB8FB4CCDB376F14C2104FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				079674B81E3FEDEC006B1F6F /* Beaming.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCD319A9C3A35E2E371F2E4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				079674B71E3FEDEC006B1F6F /* Beaming.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		024B20D6CB3AB0BC28518300 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "RhythmSpellingTools iOS";
+			target = BF196E13356832B789CF2F03 /* RhythmSpellingTools iOS */;
+			targetProxy = B6FC6DFC8E58F2370D1125EF /* PBXContainerItemProxy */;
+		};
+		B66A0093CE107F2E2F8155E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "RhythmSpellingTools macOS";
+			target = FECFAF8CF3151BDD766A355B /* RhythmSpellingTools macOS */;
+			targetProxy = E0EBB15235F8F394E4CF5EC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0BC48665E946CF3F8A685A46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = RhythmSpellingToolsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(SRCROOT)/Carthage/Build/iOS";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		5C29F22C27D935F81A24112F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/Mac";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = RhythmSpellingToolsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(SRCROOT)/Carthage/Build/Mac";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5CDA2C7545D12CC74D524E6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "-";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = RhythmSpellingTools/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dn-m.RhythmSpellingTools";
+				PRODUCT_NAME = RhythmSpellingTools;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		667AF3332020F994B8BD4865 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/Mac";
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = RhythmSpellingTools/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dn-m.RhythmSpellingTools";
+				PRODUCT_NAME = RhythmSpellingTools;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		721E6D16F44A60BED2F3C36B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		82AD9BE23B1675CD93B37BE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "-";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = RhythmSpellingTools/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dn-m.RhythmSpellingTools";
+				PRODUCT_NAME = RhythmSpellingTools;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		85EAF7D90734A2AFED4D5400 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/Mac";
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = RhythmSpellingTools/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dn-m.RhythmSpellingTools";
+				PRODUCT_NAME = RhythmSpellingTools;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A3B47C05B1BAB567E640455A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = RhythmSpellingToolsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(SRCROOT)/Carthage/Build/iOS";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B67C0B27454DD803158347D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Debug;
+		};
+		E7026409BCBEBC1425A7D534 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/Mac";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = RhythmSpellingToolsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(SRCROOT)/Carthage/Build/Mac";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09C35707186A011CD44D3E0B /* Build configuration list for PBXNativeTarget "RhythmSpellingTools iOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BC48665E946CF3F8A685A46 /* Release */,
+				A3B47C05B1BAB567E640455A /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B9A37316A69D8FCCF4C2D8B /* Build configuration list for PBXNativeTarget "RhythmSpellingTools macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85EAF7D90734A2AFED4D5400 /* Release */,
+				667AF3332020F994B8BD4865 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8260788D106EC4EE84A77E90 /* Build configuration list for PBXNativeTarget "RhythmSpellingTools iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82AD9BE23B1675CD93B37BE2 /* Release */,
+				5CDA2C7545D12CC74D524E6B /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D89F08487A4D889247275E94 /* Build configuration list for PBXProject "RhythmSpellingTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B67C0B27454DD803158347D8 /* Debug */,
+				721E6D16F44A60BED2F3C36B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4B0FE54CF9292CA133556B9 /* Build configuration list for PBXNativeTarget "RhythmSpellingTools macOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7026409BCBEBC1425A7D534 /* Release */,
+				5C29F22C27D935F81A24112F /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83092F3CA107776788D851A1 /* Project object */;
+}
