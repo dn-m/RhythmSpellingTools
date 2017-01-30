@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		079674B71E3FEDEC006B1F6F /* Beaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674B61E3FEDEC006B1F6F /* Beaming.swift */; };
 		079674B81E3FEDEC006B1F6F /* Beaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674B61E3FEDEC006B1F6F /* Beaming.swift */; };
+		079674BA1E3FEF15006B1F6F /* BeamedRhythm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674B91E3FEF15006B1F6F /* BeamedRhythm.swift */; };
+		079674BB1E3FEF15006B1F6F /* BeamedRhythm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674B91E3FEF15006B1F6F /* BeamedRhythm.swift */; };
 		3ECCB6FE9955D1525FCC360D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D5872377F890B436A97FB5 /* Cocoa.framework */; };
 		534FFB129E2971F31E6BAE0F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D5872377F890B436A97FB5 /* Cocoa.framework */; };
 		824859F55BC6D08D4C67F874 /* RhythmSpellingTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A260833E626B4BC75F64007 /* RhythmSpellingTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		079674B61E3FEDEC006B1F6F /* Beaming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Beaming.swift; path = RhythmSpellingTools/Beaming.swift; sourceTree = "<group>"; };
+		079674B91E3FEF15006B1F6F /* BeamedRhythm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeamedRhythm.swift; path = RhythmSpellingTools/BeamedRhythm.swift; sourceTree = "<group>"; };
 		0A260833E626B4BC75F64007 /* RhythmSpellingTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RhythmSpellingTools.h; path = RhythmSpellingTools/RhythmSpellingTools.h; sourceTree = "<group>"; };
 		0EEDFEDD097C2144197C8E43 /* RhythmSpellingTools macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RhythmSpellingTools macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		245135C41B52F96A08429FD3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -108,6 +111,7 @@
 			children = (
 				A7D064E42D915C220CC05E3F /* Supporting Files */,
 				079674B61E3FEDEC006B1F6F /* Beaming.swift */,
+				079674B91E3FEF15006B1F6F /* BeamedRhythm.swift */,
 			);
 			name = RhythmSpellingTools;
 			sourceTree = "<group>";
@@ -349,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				079674B81E3FEDEC006B1F6F /* Beaming.swift in Sources */,
+				079674BB1E3FEF15006B1F6F /* BeamedRhythm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				079674B71E3FEDEC006B1F6F /* Beaming.swift in Sources */,
+				079674BA1E3FEF15006B1F6F /* BeamedRhythm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
