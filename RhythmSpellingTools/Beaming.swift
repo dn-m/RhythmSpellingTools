@@ -12,8 +12,6 @@ import ArithmeticTools
 /// Model of beaming, where there is a `Junction` for each `Leaf` of a given `RhythmTree`.
 public struct Beaming {
     
-    // MARK: - Associated Type
-    
     // MARK: - Nested Types
     
     /// Model of `State` values for each beam-level
