@@ -7,10 +7,26 @@
 //
 
 import XCTest
+import Rhythm
 import RhythmSpellingTools
 
 class BeamingTests: XCTestCase {
 
+    func testBeamsCountDurationCoefficient2() {
+        let duration = 8 /> 64 // 1/8
+        XCTAssertEqual(beamsCount(duration), 1)
+    }
+    
+    func testBeamsCountDurationCoefficient3() {
+        let duration = 12 /> 256 // 3/64
+        XCTAssertEqual(beamsCount(duration), 3)
+    }
+    
+    func testBeamsCountDurationCoefficient7() {
+        let duration = 28 /> 32 // 7/8
+        XCTAssertEqual(beamsCount(duration), -1)
+    }
+    
     func testBeamingInit() {
         let start = Beaming.Junction([0: .start, 1: .start, 2: .start])
         let stop = Beaming.Junction([0: .stop, 1: .stop, 2: .stop])
@@ -28,7 +44,6 @@ class BeamingTests: XCTestCase {
         let beaming = Beaming(values)
         
         let expectedStates: [Int: Beaming.Junction.State] = [
-            0: .beamlet,
             1: .beamlet,
             2: .beamlet,
             3: .beamlet,
@@ -44,8 +59,8 @@ class BeamingTests: XCTestCase {
         let beaming = Beaming(values)
         
         let expectedStates: [[Int: Beaming.Junction.State]] = [
-            [0: .start, 1: .start, 2: .start, 3: .start],
-            [0: .stop, 1: .stop, 2: .stop, 3: .stop],
+            [1: .start, 2: .start, 3: .start],
+            [1: .stop, 2: .stop, 3: .stop],
         ]
         
         XCTAssertEqual(beaming, Beaming(expectedStates.map(Beaming.Junction.init)))
@@ -57,8 +72,8 @@ class BeamingTests: XCTestCase {
         let beaming = Beaming(values)
         
         let expectedStates: [[Int: Beaming.Junction.State]] = [
-            [0: .start, 1: .start, 2: .beamlet, 3: .beamlet, 4: .beamlet],
-            [0: .stop, 1: .stop]
+            [1: .start, 2: .beamlet, 3: .beamlet, 4: .beamlet],
+            [1: .stop]
         ]
         
         XCTAssertEqual(beaming, Beaming(expectedStates.map(Beaming.Junction.init)))
@@ -70,8 +85,8 @@ class BeamingTests: XCTestCase {
         let beaming = Beaming(values)
         
         let expectedStates: [[Int: Beaming.Junction.State]] = [
-            [0: .start, 1: .start, 2: .start],
-            [0: .stop, 1: .stop, 2: .stop, 3: .beamlet]
+            [1: .start, 2: .start],
+            [1: .stop, 2: .stop, 3: .beamlet]
         ]
         
         XCTAssertEqual(beaming, Beaming(expectedStates.map(Beaming.Junction.init)))
@@ -83,9 +98,9 @@ class BeamingTests: XCTestCase {
         let beaming = Beaming(values)
         
         let expectedStates: [[Int: Beaming.Junction.State]] = [
-            [0: .start, 1: .start, 2: .start],
-            [0: .maintain, 1: .maintain, 2: .maintain],
-            [0: .stop, 1: .stop, 2: .stop]
+            [1: .start, 2: .start],
+            [1: .maintain, 2: .maintain],
+            [1: .stop, 2: .stop]
         ]
         
         XCTAssertEqual(beaming, Beaming(expectedStates.map(Beaming.Junction.init)))
@@ -97,9 +112,9 @@ class BeamingTests: XCTestCase {
         let beaming = Beaming(values)
         
         let expectedStates: [[Int: Beaming.Junction.State]] = [
-            [0: .start, 1: .start],
-            [0: .maintain, 1: .maintain, 2: .start],
-            [0: .stop, 1: .stop, 2: .stop, 3: .beamlet, 4: .beamlet]
+            [1: .start],
+            [1: .maintain, 2: .start],
+            [1: .stop, 2: .stop, 3: .beamlet, 4: .beamlet]
         ]
         
         XCTAssertEqual(beaming, Beaming(expectedStates.map(Beaming.Junction.init)))
@@ -111,9 +126,9 @@ class BeamingTests: XCTestCase {
         let beaming = Beaming(values)
         
         let expectedStates: [[Int: Beaming.Junction.State]] = [
-            [0: .start, 1: .start],
-            [0: .maintain, 1: .maintain, 2: .start, 3: .beamlet],
-            [0: .stop, 1: .stop, 2: .stop]
+            [1: .start],
+            [1: .maintain, 2: .start, 3: .beamlet],
+            [1: .stop, 2: .stop]
         ]
         
         XCTAssertEqual(beaming, Beaming(expectedStates.map(Beaming.Junction.init)))
@@ -125,9 +140,9 @@ class BeamingTests: XCTestCase {
         let beaming = Beaming(values)
         
         let expectedStates: [[Int: Beaming.Junction.State]] = [
-            [0: .start, 1: .start, 2: .beamlet],
-            [0: .maintain, 1: .maintain],
-            [0: .stop, 1: .stop, 2: .beamlet, 3: .beamlet, 4: .beamlet]
+            [1: .start, 2: .beamlet],
+            [1: .maintain],
+            [1: .stop, 2: .beamlet, 3: .beamlet, 4: .beamlet]
         ]
         
         XCTAssertEqual(beaming, Beaming(expectedStates.map(Beaming.Junction.init)))
@@ -139,9 +154,9 @@ class BeamingTests: XCTestCase {
         let beaming = Beaming(values)
         
         let expectedStates: [[Int: Beaming.Junction.State]] = [
-            [0: .start, 1: .start, 2: .start],
-            [0: .maintain, 1: .maintain, 2: .stop, 3: .beamlet],
-            [0: .stop, 1: .stop]
+            [1: .start, 2: .start],
+            [1: .maintain, 2: .stop, 3: .beamlet],
+            [1: .stop]
         ]
         
         XCTAssertEqual(beaming, Beaming(expectedStates.map(Beaming.Junction.init)))
@@ -153,34 +168,31 @@ class BeamingTests: XCTestCase {
         let beaming = Beaming(values)
         
         let expectedStates: [[Int: Beaming.Junction.State]] = [
-            [0: .start, 1: .start], // 1
-            [0: .maintain, 1: .maintain, 2: .start, 3: .beamlet], // 2
-            [0: .maintain, 1: .maintain, 2: .maintain], // 2
-            [0: .maintain, 1: .maintain, 2: .maintain], // 2
-            [0: .maintain, 1: .maintain, 2: .maintain, 3: .start, 4: .beamlet], // 4
-            [0: .maintain, 1: .maintain, 2: .maintain, 3: .maintain], // 3
-            [0: .maintain, 1: .maintain, 2: .stop, 3: .stop], // 3
-            [0: .maintain, 1: .maintain], // 1
-            [0: .stop, 1: .stop, 2: .beamlet, 3: .beamlet] // 3
+            [1: .start], // 1
+            [1: .maintain, 2: .start, 3: .beamlet], // 2
+            [1: .maintain, 2: .maintain], // 2
+            [1: .maintain, 2: .maintain], // 2
+            [1: .maintain, 2: .maintain, 3: .start, 4: .beamlet], // 4
+            [1: .maintain, 2: .maintain, 3: .maintain], // 3
+            [1: .maintain, 2: .stop, 3: .stop], // 3
+            [1: .maintain], // 1
+            [1: .stop, 2: .beamlet, 3: .beamlet] // 3
         ]
-        
-        //print("result:\(beaming.map { $0.states });expected:\(expectedStates))")
-        
-        print("result:")
-        beaming.map { $0.states }.forEach { print($0) }
-        
-        print("expected:")
-        expectedStates.forEach { print($0) }
-        
         
         XCTAssertEqual(beaming, Beaming(expectedStates.map(Beaming.Junction.init)))
     }
+    
+    func testInitWithMetricalDurationTreeSingleDepthCoefficient2() {
+        
+        let tree = 1 /> 32 * [1,1,1] // 1/64, 1/64, 1/64
+        let beaming = Beaming(tree)
+        
+        let expected = Beaming([
+            [1: Beaming.Junction.State.start, 2: .start, 3: .start, 4: .start],
+            [1: .maintain, 2: .maintain, 3: .maintain, 4: .maintain],
+            [1: .stop, 2: .stop, 3: .stop, 4: .stop],
+        ].map(Beaming.Junction.init))
+
+        XCTAssertEqual(beaming, expected)
+    }
 }
-
-
-
-
-
-
-
-

@@ -6,8 +6,10 @@
 //
 //
 
+import Foundation
 import Collections
 import ArithmeticTools
+import Rhythm
 
 /// Model of beaming, where there is a `Junction` for each `Leaf` of a given `RhythmTree`.
 public struct Beaming {
@@ -58,7 +60,31 @@ public struct Beaming {
     }
 }
 
+/// - returns: Amount of beams needed to represent the given `duration`.
+public func beamsCount(_ duration: MetricalDuration) -> Int {
+    
+    let reduced = duration.reduced
+
+    guard !reduced.numerator.isDivisible(by: 5) else {
+        fatalError("Unsanitary duration for beamed representation: \(reduced)")
+    }
+    
+    let subdivisionCount = Int(log2(Double(reduced.denominator))) - 2
+
+    if reduced.numerator.isDivisible(by: 3) {
+        return subdivisionCount - 1
+    } else if reduced.numerator.isDivisible(by: 7) {
+        return subdivisionCount - 2
+    }
+    
+    return subdivisionCount
+}
+
 extension Beaming {
+    
+    public init(_ metricalDurationTree: MetricalDurationTree) {
+        self.init(metricalDurationTree.leaves.map(beamsCount))
+    }
     
     /// Create a `Beaming` with
     public init(_ values: [Int]) {
@@ -76,7 +102,6 @@ extension Beaming {
     }
 }
 
-
 extension Beaming.Junction {
     
     /// Create a `Junction` with the given context:
@@ -90,13 +115,13 @@ extension Beaming.Junction {
         
         /// - returns: `Ranges` for a singleton value.
         func singleton(_ cur: Int) -> Ranges {
-            return [.beamlet: 0...cur]
+            return [.beamlet: 1...cur]
         }
         
         /// - returns: `Ranges` for a first value.
         func first(_ cur: Int, _ next: Int) -> Ranges {
             
-            var ranges: Ranges = [.start: 0...min(cur,next)]
+            var ranges: Ranges = [.start: 1...min(cur,next)]
             
             // add beamlets if necessary
             if cur > next {
@@ -109,14 +134,14 @@ extension Beaming.Junction {
         /// - returns: `Ranges` for a middle value.
         func middle(_ prev: Int, _ cur: Int, _ next: Int) -> Ranges {
             
-            var ranges: Ranges = [.maintain: 0...min(prev,cur,next)]
+            var ranges: Ranges = [.maintain: 1...min(prev,cur,next)]
             
             // start new beams if necessary
             if cur > prev {
                 ranges[.start] = prev + 1 ... cur
             }
             
-            // neighboring junctions
+            // neighboring junctions, ordered
             let (lower, higher) = ordered(prev,next)
             
             // stop beams if necessary
@@ -142,7 +167,7 @@ extension Beaming.Junction {
         func last(_ prev: Int, _ cur: Int) -> Ranges {
             
             // stop beams
-            var ranges: Ranges = [.stop: 0...min(cur,prev)]
+            var ranges: Ranges = [.stop: 1...min(cur,prev)]
             
             // add beamlets if necessary
             if cur > prev {
