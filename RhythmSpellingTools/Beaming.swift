@@ -13,7 +13,7 @@ public struct Beaming {
     
     // MARK: - Associated Type
     
-    public typealias Level = UInt
+    public typealias Level = Int
     
     // MARK: - Nested Types
     
@@ -25,11 +25,12 @@ public struct Beaming {
             case start
             case stop
             case maintain
+            case beamlet
         }
         
         // MARK: - Instance Properties
         
-        /// - TODO: Consider just making `Array`, because, we always have to know
+        /// - TODO: Consider just making `Array`, because, we always have to know 0 ..< n
         fileprivate let states: [Level: State]
         
         // MARK: - Initializers
@@ -50,7 +51,44 @@ public struct Beaming {
     public init(_ junctions: [Junction] = []) {
         self.junctions = junctions
     }
+    
+    func junctions(_ beamAmounts: [Int]) -> [Junction] {
+
+        // first, check for
+        // - single
+        // - double
+        
+        if beamAmounts.count == 1 {
+            
+            let states: [Level: Junction.State] = [:]
+            
+            
+            
+            //let levels = (0...beamAmounts.first!).map { $0 }
+            //let states = Junction(Dictionary(levels, ))
+            
+            //return (0...levels.first!).map { Junction()
+        }
+        
+        // (Int?, Int, Int?)
+        
+        for (l, level) in beamAmounts.enumerated() {
+            
+            var prev: Int? = beamAmounts[safe: l - 1]
+            let cur: Int = beamAmounts[l]
+            let next: Int? = beamAmounts[safe: l + 1]
+            
+
+        }
+        return []
+    }
 }
+
+
+// ([Int]) -> [Junction]
+
+
+
 
 extension Beaming: AnyCollectionWrapping {
     

@@ -8,12 +8,12 @@
 
 import Rhythm
 
-public struct BeamedRhythm {
+public struct BeamedRhythm <T: Equatable> {
     
-    let rhythmTree: RhythmTree<Any>
+    let rhythmTree: RhythmTree<T>
     let beaming: Beaming
     
-    public init(_ rhythmTree: RhythmTree<Any>, _ beaming: Beaming) {
+    public init(_ rhythmTree: RhythmTree<T>, _ beaming: Beaming) {
         self.rhythmTree = rhythmTree
         self.beaming = beaming
     }
