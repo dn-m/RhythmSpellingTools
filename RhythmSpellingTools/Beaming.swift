@@ -82,6 +82,7 @@ public func beamsCount(_ duration: MetricalDuration) -> Int {
 
 extension Beaming {
     
+    /// Create a `Beaming` with `MetricalDurationTree`.
     public init(_ metricalDurationTree: MetricalDurationTree) {
         self.init(metricalDurationTree.leaves.map(beamsCount))
     }
