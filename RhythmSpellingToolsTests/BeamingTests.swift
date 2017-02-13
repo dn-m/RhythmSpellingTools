@@ -170,7 +170,7 @@ class BeamingTests: XCTestCase {
         let expectedStates: [[Int: Beaming.Junction.State]] = [
             [1: .start], // 1
             [1: .maintain, 2: .start, 3: .beamlet], // 2
-            [1: .maintain, 2: .maintain], // 2
+            [1: .maintain, 2: .maintain], // 3
             [1: .maintain, 2: .maintain], // 2
             [1: .maintain, 2: .maintain, 3: .start, 4: .beamlet], // 4
             [1: .maintain, 2: .maintain, 3: .maintain], // 3

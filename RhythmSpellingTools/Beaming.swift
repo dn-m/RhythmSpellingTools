@@ -65,11 +65,11 @@ public func beamsCount(_ duration: MetricalDuration) -> Int {
     
     let reduced = duration.reduced
 
-    guard !reduced.numerator.isDivisible(by: 5) else {
+    guard [1,3,7].contains(reduced.numerator) else {
         fatalError("Unsanitary duration for beamed representation: \(reduced)")
     }
     
-    let subdivisionCount = Int(log2(Double(reduced.denominator))) - 2
+    let subdivisionCount = countTrailingZeros(reduced.denominator) - 2
 
     if reduced.numerator.isDivisible(by: 3) {
         return subdivisionCount - 1
