@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		079674B71E3FEDEC006B1F6F /* Beaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674B61E3FEDEC006B1F6F /* Beaming.swift */; };
-		079674B81E3FEDEC006B1F6F /* Beaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674B61E3FEDEC006B1F6F /* Beaming.swift */; };
-		079674BA1E3FEF15006B1F6F /* BeamedRhythm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674B91E3FEF15006B1F6F /* BeamedRhythm.swift */; };
-		079674BB1E3FEF15006B1F6F /* BeamedRhythm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674B91E3FEF15006B1F6F /* BeamedRhythm.swift */; };
-		079674BD1E3FEFC3006B1F6F /* BeamingTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674BC1E3FEFC3006B1F6F /* BeamingTree.swift */; };
-		079674BE1E3FEFC3006B1F6F /* BeamingTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079674BC1E3FEFC3006B1F6F /* BeamingTree.swift */; };
+		071511C81E525F100003576F /* RhythmSpelling+BeamJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511C71E525F100003576F /* RhythmSpelling+BeamJunction.swift */; };
+		071511C91E525F100003576F /* RhythmSpelling+BeamJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511C71E525F100003576F /* RhythmSpelling+BeamJunction.swift */; };
+		071511CB1E525F3A0003576F /* RhythmSpelling+TieState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511CA1E525F3A0003576F /* RhythmSpelling+TieState.swift */; };
+		071511CC1E525F3A0003576F /* RhythmSpelling+TieState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511CA1E525F3A0003576F /* RhythmSpelling+TieState.swift */; };
+		071511CE1E5260230003576F /* RhythmSpelling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511CD1E5260230003576F /* RhythmSpelling.swift */; };
+		071511CF1E5260230003576F /* RhythmSpelling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511CD1E5260230003576F /* RhythmSpelling.swift */; };
+		071511D71E52762D0003576F /* RhythmSpellingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511D61E52762D0003576F /* RhythmSpellingTests.swift */; };
+		071511D81E52762D0003576F /* RhythmSpellingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511D61E52762D0003576F /* RhythmSpellingTests.swift */; };
 		07ADE6F81E4F8FEC00600BED /* RhythmSpellingTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64C908616E1E87C42A9ABA1 /* RhythmSpellingTools.framework */; };
 		07ADE6FC1E4F8FFA00600BED /* ArithmeticTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE6F91E4F8FFA00600BED /* ArithmeticTools.framework */; };
 		07ADE6FD1E4F8FFA00600BED /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE6FA1E4F8FFA00600BED /* Collections.framework */; };
@@ -21,10 +23,6 @@
 		07ADE7031E4F901100600BED /* ArithmeticTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE7001E4F901100600BED /* ArithmeticTools.framework */; };
 		07ADE7041E4F901100600BED /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE7011E4F901100600BED /* Collections.framework */; };
 		07ADE7051E4F901100600BED /* Rhythm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE7021E4F901100600BED /* Rhythm.framework */; };
-		07DD82311E4FBD8B00406C25 /* BeamedRhythmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DD822F1E4FBD8B00406C25 /* BeamedRhythmTests.swift */; };
-		07DD82321E4FBD8B00406C25 /* BeamedRhythmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DD822F1E4FBD8B00406C25 /* BeamedRhythmTests.swift */; };
-		07DD82331E4FBD8B00406C25 /* BeamingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DD82301E4FBD8B00406C25 /* BeamingTests.swift */; };
-		07DD82341E4FBD8B00406C25 /* BeamingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DD82301E4FBD8B00406C25 /* BeamingTests.swift */; };
 		3ECCB6FE9955D1525FCC360D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D5872377F890B436A97FB5 /* Cocoa.framework */; };
 		534FFB129E2971F31E6BAE0F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D5872377F890B436A97FB5 /* Cocoa.framework */; };
 		824859F55BC6D08D4C67F874 /* RhythmSpellingTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A260833E626B4BC75F64007 /* RhythmSpellingTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -51,17 +49,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		079674B61E3FEDEC006B1F6F /* Beaming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Beaming.swift; path = RhythmSpellingTools/Beaming.swift; sourceTree = "<group>"; };
-		079674B91E3FEF15006B1F6F /* BeamedRhythm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeamedRhythm.swift; path = RhythmSpellingTools/BeamedRhythm.swift; sourceTree = "<group>"; };
-		079674BC1E3FEFC3006B1F6F /* BeamingTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeamingTree.swift; path = RhythmSpellingTools/BeamingTree.swift; sourceTree = "<group>"; };
+		071511C71E525F100003576F /* RhythmSpelling+BeamJunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RhythmSpelling+BeamJunction.swift"; path = "RhythmSpellingTools/RhythmSpelling+BeamJunction.swift"; sourceTree = "<group>"; };
+		071511CA1E525F3A0003576F /* RhythmSpelling+TieState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RhythmSpelling+TieState.swift"; path = "RhythmSpellingTools/RhythmSpelling+TieState.swift"; sourceTree = "<group>"; };
+		071511CD1E5260230003576F /* RhythmSpelling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RhythmSpelling.swift; path = RhythmSpellingTools/RhythmSpelling.swift; sourceTree = "<group>"; };
+		071511D61E52762D0003576F /* RhythmSpellingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RhythmSpellingTests.swift; path = RhythmSpellingToolsTests/RhythmSpellingTests.swift; sourceTree = "<group>"; };
 		07ADE6F91E4F8FFA00600BED /* ArithmeticTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArithmeticTools.framework; path = Carthage/Build/iOS/ArithmeticTools.framework; sourceTree = "<group>"; };
 		07ADE6FA1E4F8FFA00600BED /* Collections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collections.framework; path = Carthage/Build/iOS/Collections.framework; sourceTree = "<group>"; };
 		07ADE6FB1E4F8FFA00600BED /* Rhythm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rhythm.framework; path = Carthage/Build/iOS/Rhythm.framework; sourceTree = "<group>"; };
 		07ADE7001E4F901100600BED /* ArithmeticTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArithmeticTools.framework; path = Carthage/Build/Mac/ArithmeticTools.framework; sourceTree = "<group>"; };
 		07ADE7011E4F901100600BED /* Collections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collections.framework; path = Carthage/Build/Mac/Collections.framework; sourceTree = "<group>"; };
 		07ADE7021E4F901100600BED /* Rhythm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rhythm.framework; path = Carthage/Build/Mac/Rhythm.framework; sourceTree = "<group>"; };
-		07DD822F1E4FBD8B00406C25 /* BeamedRhythmTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeamedRhythmTests.swift; path = RhythmSpellingToolsTests/BeamedRhythmTests.swift; sourceTree = "<group>"; };
-		07DD82301E4FBD8B00406C25 /* BeamingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeamingTests.swift; path = RhythmSpellingToolsTests/BeamingTests.swift; sourceTree = "<group>"; };
 		0A260833E626B4BC75F64007 /* RhythmSpellingTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RhythmSpellingTools.h; path = RhythmSpellingTools/RhythmSpellingTools.h; sourceTree = "<group>"; };
 		0EEDFEDD097C2144197C8E43 /* RhythmSpellingTools macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RhythmSpellingTools macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		245135C41B52F96A08429FD3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -147,9 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				A7D064E42D915C220CC05E3F /* Supporting Files */,
-				079674B61E3FEDEC006B1F6F /* Beaming.swift */,
-				079674B91E3FEF15006B1F6F /* BeamedRhythm.swift */,
-				079674BC1E3FEFC3006B1F6F /* BeamingTree.swift */,
+				071511C71E525F100003576F /* RhythmSpelling+BeamJunction.swift */,
+				071511CA1E525F3A0003576F /* RhythmSpelling+TieState.swift */,
+				071511CD1E5260230003576F /* RhythmSpelling.swift */,
 			);
 			name = RhythmSpellingTools;
 			sourceTree = "<group>";
@@ -184,8 +181,7 @@
 		9E54326E896F64E52B0764AB /* RhythmSpellingToolsTests */ = {
 			isa = PBXGroup;
 			children = (
-				07DD822F1E4FBD8B00406C25 /* BeamedRhythmTests.swift */,
-				07DD82301E4FBD8B00406C25 /* BeamingTests.swift */,
+				071511D61E52762D0003576F /* RhythmSpellingTests.swift */,
 				985C718BC7DD29AF4385A6CB /* Supporting Files */,
 			);
 			name = RhythmSpellingToolsTests;
@@ -382,8 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07DD82321E4FBD8B00406C25 /* BeamedRhythmTests.swift in Sources */,
-				07DD82341E4FBD8B00406C25 /* BeamingTests.swift in Sources */,
+				071511D81E52762D0003576F /* RhythmSpellingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,8 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07DD82311E4FBD8B00406C25 /* BeamedRhythmTests.swift in Sources */,
-				07DD82331E4FBD8B00406C25 /* BeamingTests.swift in Sources */,
+				071511D71E52762D0003576F /* RhythmSpellingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,9 +394,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				079674BE1E3FEFC3006B1F6F /* BeamingTree.swift in Sources */,
-				079674B81E3FEDEC006B1F6F /* Beaming.swift in Sources */,
-				079674BB1E3FEF15006B1F6F /* BeamedRhythm.swift in Sources */,
+				071511C91E525F100003576F /* RhythmSpelling+BeamJunction.swift in Sources */,
+				071511CC1E525F3A0003576F /* RhythmSpelling+TieState.swift in Sources */,
+				071511CF1E5260230003576F /* RhythmSpelling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,9 +404,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				079674BD1E3FEFC3006B1F6F /* BeamingTree.swift in Sources */,
-				079674B71E3FEDEC006B1F6F /* Beaming.swift in Sources */,
-				079674BA1E3FEF15006B1F6F /* BeamedRhythm.swift in Sources */,
+				071511C81E525F100003576F /* RhythmSpelling+BeamJunction.swift in Sources */,
+				071511CB1E525F3A0003576F /* RhythmSpelling+TieState.swift in Sources */,
+				071511CE1E5260230003576F /* RhythmSpelling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
