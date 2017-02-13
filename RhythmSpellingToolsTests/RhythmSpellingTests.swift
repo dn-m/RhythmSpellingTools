@@ -50,7 +50,7 @@ class RhythmSpellingTests: XCTestCase {
         let expectedStates: [[Int: RhythmSpelling.BeamJunction.State]] = [
             [1: .start, 2: .start, 3: .start],
             [1: .stop, 2: .stop, 3: .stop],
-            ]
+        ]
         
         XCTAssertEqual(junctions, expectedStates.map(RhythmSpelling.BeamJunction.init))
     }
