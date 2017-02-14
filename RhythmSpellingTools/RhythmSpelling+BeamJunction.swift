@@ -1,23 +1,18 @@
 //
-//  Beaming.swift
+//  BeamJunction.swift
 //  RhythmSpellingTools
 //
-//  Created by James Bean on 1/30/17.
+//  Created by James Bean on 2/13/17.
 //
 //
 
-import Foundation
-import Collections
-import ArithmeticTools
 import Rhythm
+import ArithmeticTools
 
-/// Model of beaming, where there is a `Junction` for each `Leaf` of a given `RhythmTree`.
-public struct Beaming {
-    
-    // MARK: - Nested Types
+extension RhythmSpelling {
     
     /// Model of `State` values for each beam-level
-    public struct Junction {
+    public struct BeamJunction {
         
         /// Whether to start, stop, or maintain a beam for a given beam-level
         public enum State: String {
@@ -37,73 +32,18 @@ public struct Beaming {
         
         // MARK: - Instance Properties
         
-        /// - TODO: Consider just making `Array`, because, we always have to know 0 ..< n
-        public let states: [Int: State]
+        fileprivate let states: [Int: State]
         
         // MARK: - Initializers
         
-        /// Create a `Junction` with a mapping of `State` to beam-level
+        /// Creates a `Junction` with a mapping of `State` to beam-level
         public init(_ states: [Int: State] = [:]) {
             self.states = states
         }
     }
-
-    // MARK: - Instance Properties
-    
-    fileprivate let junctions: [Junction]
-    
-    // MARK: - Initializers
-    
-    /// Create a `Beaming` with an array of `Junction` values.
-    public init(_ junctions: [Junction] = []) {
-        self.junctions = junctions
-    }
 }
 
-/// - returns: Amount of beams needed to represent the given `duration`.
-public func beamsCount(_ duration: MetricalDuration) -> Int {
-    
-    let reduced = duration.reduced
-
-    guard [1,3,7].contains(reduced.numerator) else {
-        fatalError("Unsanitary duration for beamed representation: \(reduced)")
-    }
-    
-    let subdivisionCount = countTrailingZeros(reduced.denominator) - 2
-
-    if reduced.numerator.isDivisible(by: 3) {
-        return subdivisionCount - 1
-    } else if reduced.numerator.isDivisible(by: 7) {
-        return subdivisionCount - 2
-    }
-    
-    return subdivisionCount
-}
-
-extension Beaming {
-    
-    /// Create a `Beaming` with `MetricalDurationTree`.
-    public init(_ metricalDurationTree: MetricalDurationTree) {
-        self.init(metricalDurationTree.leaves.map(beamsCount))
-    }
-    
-    /// Create a `Beaming` with
-    public init(_ values: [Int]) {
-        
-        let junctions: [Junction] = values.indices.map { index in
-            
-            let prev: Int? = values[safe: index - 1]
-            let cur: Int = values[index]
-            let next: Int? = values[safe: index + 1]
-            
-            return Junction(prev, cur, next)
-        }
-        
-        self.init(junctions)
-    }
-}
-
-extension Beaming.Junction {
+extension RhythmSpelling.BeamJunction {
     
     /// Create a `Junction` with the given context:
     ///
@@ -210,32 +150,36 @@ extension Beaming.Junction {
     }
 }
 
-extension Beaming: Equatable {
+extension RhythmSpelling.BeamJunction: Equatable {
     
-    public static func == (lhs: Beaming, rhs: Beaming) -> Bool {
-        return lhs.junctions == rhs.junctions
-    }
-}
-
-extension Beaming.Junction: Equatable {
-    
-    public static func == (lhs: Beaming.Junction, rhs: Beaming.Junction) -> Bool {
+    /// - returns: `true` if `BeamJunction` values are equivalent. Otherwise, `false`.
+    public static func == (lhs: RhythmSpelling.BeamJunction, rhs: RhythmSpelling.BeamJunction)
+        -> Bool
+    {
         return lhs.states == rhs.states
     }
 }
 
-extension Beaming.Junction.State: CustomStringConvertible {
+extension RhythmSpelling.BeamJunction: CustomStringConvertible {
     
     public var description: String {
-        return rawValue
+        return states.description
     }
 }
 
-extension Beaming: AnyCollectionWrapping {
+extension RhythmSpelling.BeamJunction.State: CustomStringConvertible {
     
-    // MARK: - AnyCollectionWrapping
-    
-    public var collection: AnyCollection<Junction> {
-        return AnyCollection(junctions)
+    /// Printed description.
+    public var description: String {
+        switch self {
+        case .start:
+            return "start"
+        case .stop:
+            return "stop"
+        case .maintain:
+            return "maintain"
+        case .beamlet:
+            return "beamlet"
+        }
     }
 }
