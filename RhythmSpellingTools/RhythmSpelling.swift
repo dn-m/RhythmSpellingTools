@@ -29,9 +29,13 @@ public struct RhythmSpelling {
     
     // MARK: - Instance Properties
     
-    private let contexts: [Context]
+    fileprivate let contexts: [Context]
     
     // MARK: - Initializers
+    
+    public init(_ contexts: [Context]) {
+        self.contexts = contexts
+    }
     
     /// Creates a `RhythmSpelling` with the given `rhythmTree`.
     ///
@@ -44,12 +48,35 @@ public struct RhythmSpelling {
         let tieStates = makeTieStates(rhythmTree.leafContexts)
         let dots = leaves.map(dotCount)
         
-        self.contexts = zip(junctions, tieStates, dots).map(Context.init)
+        self.init(zip(junctions, tieStates, dots).map(Context.init))
+    }
+}
+
+extension RhythmSpelling: Equatable {
+    
+    // MARK: - Equatable
+    
+    /// - returns: `true` if `RhythmSpelling` values are equivalent. Otherwise, `false`.
+    public static func == (lhs: RhythmSpelling, rhs: RhythmSpelling) -> Bool {
+        return lhs.contexts == rhs.contexts
+    }
+}
+
+extension RhythmSpelling: CustomStringConvertible {
+    
+    // MARK: - CustomStringConvertible
+    
+    /// Printed description.
+    public var description: String {
+        return contexts.description
     }
 }
 
 extension RhythmSpelling.Context: Equatable {
     
+    // MARK: - Equatable
+    
+    /// - returns: `true` if `Context` values are equivalent. Otherwise, `false`.
     public static func == (lhs: RhythmSpelling.Context, rhs: RhythmSpelling.Context) -> Bool {
         return (
             lhs.beamJunction == rhs.beamJunction &&

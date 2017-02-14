@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Collections
 import Rhythm
 @testable import RhythmSpellingTools
 
@@ -240,12 +241,36 @@ class RhythmSpellingTests: XCTestCase {
         let rhythmTree = RhythmTree(metricalDurationTree, metricalContexts)
         let spelling = RhythmSpelling(rhythmTree)
 
-        // TODO: Add assertion!
+        let expectedBeamJunctions: [RhythmSpelling.BeamJunction] = [
+            [1: .start],
+            [1: .maintain],
+            [1: .maintain],
+            [1: .stop]
+        ].map(RhythmSpelling.BeamJunction.init)
+        
+        let expectedTieStates: [RhythmSpelling.TieState] = [
+            .start,
+            .maintain,
+            .stop,
+            .none
+        ]
+        
+        let expectedDots = [0,0,0,0]
+        
+        let expected = RhythmSpelling(
+            zip(
+                expectedBeamJunctions,
+                expectedTieStates,
+                expectedDots
+            ).map(RhythmSpelling.Context.init)
+        )
+        
+        XCTAssertEqual(spelling, expected)
     }
     
     func testInitWithRhythmTreeDottedValues() {
         
-        let metricalDurationTree = 2/>4 * [1,2,3,7]
+        let metricalDurationTree = 2/>8 * [1,2,3,7]
         
         let metricalContexts: [MetricalContext<Int>] = [
             .instance(.event(1)),
@@ -257,6 +282,30 @@ class RhythmSpellingTests: XCTestCase {
         let rhythmTree = RhythmTree(metricalDurationTree, metricalContexts)
         let spelling = RhythmSpelling(rhythmTree)
         
-        // TODO: Add assertion!
+        let expectedBeamJunctions: [RhythmSpelling.BeamJunction] = [
+            [1: .start, 2: .start, 3: .start, 4: .beamlet],
+            [1: .maintain, 2: .maintain, 3: .maintain],
+            [1: .maintain, 2: .maintain, 3: .stop],
+            [1: .stop, 2: .stop]
+        ].map(RhythmSpelling.BeamJunction.init)
+        
+        let expectedTieStates: [RhythmSpelling.TieState] = [
+            .start,
+            .maintain,
+            .stop,
+            .none
+        ]
+        
+        let expectedDots = [0,0,1,2]
+        
+        let expected = RhythmSpelling(
+            zip(
+                expectedBeamJunctions,
+                expectedTieStates,
+                expectedDots
+            ).map(RhythmSpelling.Context.init)
+        )
+        
+        XCTAssertEqual(spelling, expected)
     }
 }

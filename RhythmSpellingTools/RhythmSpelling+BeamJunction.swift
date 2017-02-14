@@ -32,7 +32,6 @@ extension RhythmSpelling {
         
         // MARK: - Instance Properties
         
-        
         fileprivate let states: [Int: State]
         
         // MARK: - Initializers
@@ -158,5 +157,29 @@ extension RhythmSpelling.BeamJunction: Equatable {
         -> Bool
     {
         return lhs.states == rhs.states
+    }
+}
+
+extension RhythmSpelling.BeamJunction: CustomStringConvertible {
+    
+    public var description: String {
+        return states.description
+    }
+}
+
+extension RhythmSpelling.BeamJunction.State: CustomStringConvertible {
+    
+    /// Printed description.
+    public var description: String {
+        switch self {
+        case .start:
+            return "start"
+        case .stop:
+            return "stop"
+        case .maintain:
+            return "maintain"
+        case .beamlet:
+            return "beamlet"
+        }
     }
 }
