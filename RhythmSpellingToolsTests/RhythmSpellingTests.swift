@@ -257,13 +257,13 @@ class RhythmSpellingTests: XCTestCase {
         
         let expectedDots = [0,0,0,0]
         
-        let expected = RhythmSpelling(
-            zip(
-                expectedBeamJunctions,
-                expectedTieStates,
-                expectedDots
-            ).map(RhythmSpelling.Context.init)
-        )
+        let contexts = zip(
+            expectedBeamJunctions,
+            expectedTieStates,
+            expectedDots
+        ).map(RhythmSpelling.Context.init)
+        
+        let expected = RhythmSpelling(contexts: contexts, groups: [])
         
         XCTAssertEqual(spelling, expected)
     }
@@ -298,14 +298,23 @@ class RhythmSpellingTests: XCTestCase {
         
         let expectedDots = [0,0,1,2]
         
-        let expected = RhythmSpelling(
-            zip(
-                expectedBeamJunctions,
-                expectedTieStates,
-                expectedDots
-            ).map(RhythmSpelling.Context.init)
-        )
+        let contexts = zip(
+            expectedBeamJunctions,
+            expectedTieStates,
+            expectedDots
+        ).map(RhythmSpelling.Context.init)
+        
+        let expected = RhythmSpelling(contexts: contexts, groups: [])
         
         XCTAssertEqual(spelling, expected)
+    }
+    
+    func testMakeGroups() {
+        
+        let tree = 1/>8 * [1,[[1,[1,1]],[1,[[1,[1,1,1]],[1,[1,1,1]]]]]]
+        
+        print(tree)
+        let groups = makeGroups(tree)
+        print(groups)
     }
 }

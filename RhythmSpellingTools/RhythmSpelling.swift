@@ -31,10 +31,14 @@ public struct RhythmSpelling {
     
     fileprivate let contexts: [Context]
     
+    // groups by depth
+    fileprivate let groups: Tree<(CountableClosedRange<Int>, Group)>
+    
     // MARK: - Initializers
     
-    public init(_ contexts: [Context]) {
+    public init(contexts: [Context], groups: Tree<(CountableClosedRange<Int>, Group)>) {
         self.contexts = contexts
+        self.groups = groups
     }
     
     /// Creates a `RhythmSpelling` with the given `rhythmTree`.
@@ -47,8 +51,10 @@ public struct RhythmSpelling {
         let junctions = makeJunctions(leaves)
         let tieStates = makeTieStates(rhythmTree.leafContexts)
         let dots = leaves.map(dotCount)
-        
-        self.init(zip(junctions, tieStates, dots).map(Context.init))
+        let contexts = zip(junctions, tieStates, dots).map(Context.init)
+        let groups = makeGroups(rhythmTree.metricalDurationTree)
+
+        self.init(contexts: contexts, groups: groups)
     }
 }
 
@@ -109,6 +115,54 @@ internal func makeJunctions(_ counts: [Int]) -> [RhythmSpelling.BeamJunction] {
         
         return RhythmSpelling.BeamJunction(prev, cur, next)
     }
+}
+
+internal func makeGroups(_ tree: MetricalDurationTree)
+    -> Tree<(CountableClosedRange<Int>, RhythmSpelling.Group)>
+{
+    
+    func traverse(_ tree: MetricalDurationTree, offset: Int)
+        -> Tree<(CountableClosedRange<Int>, RhythmSpelling.Group)>
+    {
+        
+        switch tree {
+        case .leaf:
+            fatalError("Ill-formed MetricalDurationTree")
+            
+        case .branch(_, let trees):
+            
+            let group = RhythmSpelling.Group(tree)
+            let leavesCount = tree.leaves.count
+            let range = offset ... offset + leavesCount
+
+            // Replace with `Tree.branches`
+            let trees = trees.filter {
+                switch $0 {
+                case .leaf:
+                    return false
+                case .branch:
+                    return true
+                }
+            }
+
+            // Refactor this as a reduce
+            var newTrees: [Tree<(CountableClosedRange<Int>, RhythmSpelling.Group)>] = []
+            var subOffset = offset
+            for subTree in trees {
+                newTrees.append(traverse(subTree, offset: subOffset))
+                subOffset += subTree.leaves.count
+            }
+            
+            let value = (range, group)
+            if newTrees.isEmpty {
+                return .leaf(value)
+            } else {
+                return .branch(value, newTrees)
+            }
+        }
+    }
+    
+    return traverse(tree, offset: 0)
 }
 
 /// - returns: An array of `BeamJunction` values for the given `leaves`.

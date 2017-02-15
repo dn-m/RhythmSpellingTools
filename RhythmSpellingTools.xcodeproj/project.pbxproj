@@ -15,6 +15,8 @@
 		071511CF1E5260230003576F /* RhythmSpelling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511CD1E5260230003576F /* RhythmSpelling.swift */; };
 		071511D71E52762D0003576F /* RhythmSpellingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511D61E52762D0003576F /* RhythmSpellingTests.swift */; };
 		071511D81E52762D0003576F /* RhythmSpellingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511D61E52762D0003576F /* RhythmSpellingTests.swift */; };
+		071511DA1E5285740003576F /* RhythmSpelling+TupletBracketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511D91E5285740003576F /* RhythmSpelling+TupletBracketModel.swift */; };
+		071511DB1E5285740003576F /* RhythmSpelling+TupletBracketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511D91E5285740003576F /* RhythmSpelling+TupletBracketModel.swift */; };
 		07ADE6F81E4F8FEC00600BED /* RhythmSpellingTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64C908616E1E87C42A9ABA1 /* RhythmSpellingTools.framework */; };
 		07ADE6FC1E4F8FFA00600BED /* ArithmeticTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE6F91E4F8FFA00600BED /* ArithmeticTools.framework */; };
 		07ADE6FD1E4F8FFA00600BED /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE6FA1E4F8FFA00600BED /* Collections.framework */; };
@@ -53,6 +55,7 @@
 		071511CA1E525F3A0003576F /* RhythmSpelling+TieState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RhythmSpelling+TieState.swift"; path = "RhythmSpellingTools/RhythmSpelling+TieState.swift"; sourceTree = "<group>"; };
 		071511CD1E5260230003576F /* RhythmSpelling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RhythmSpelling.swift; path = RhythmSpellingTools/RhythmSpelling.swift; sourceTree = "<group>"; };
 		071511D61E52762D0003576F /* RhythmSpellingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RhythmSpellingTests.swift; path = RhythmSpellingToolsTests/RhythmSpellingTests.swift; sourceTree = "<group>"; };
+		071511D91E5285740003576F /* RhythmSpelling+TupletBracketModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RhythmSpelling+TupletBracketModel.swift"; path = "RhythmSpellingTools/RhythmSpelling+TupletBracketModel.swift"; sourceTree = "<group>"; };
 		07ADE6F91E4F8FFA00600BED /* ArithmeticTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArithmeticTools.framework; path = Carthage/Build/iOS/ArithmeticTools.framework; sourceTree = "<group>"; };
 		07ADE6FA1E4F8FFA00600BED /* Collections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collections.framework; path = Carthage/Build/iOS/Collections.framework; sourceTree = "<group>"; };
 		07ADE6FB1E4F8FFA00600BED /* Rhythm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rhythm.framework; path = Carthage/Build/iOS/Rhythm.framework; sourceTree = "<group>"; };
@@ -145,6 +148,7 @@
 			children = (
 				A7D064E42D915C220CC05E3F /* Supporting Files */,
 				071511C71E525F100003576F /* RhythmSpelling+BeamJunction.swift */,
+				071511D91E5285740003576F /* RhythmSpelling+TupletBracketModel.swift */,
 				071511CA1E525F3A0003576F /* RhythmSpelling+TieState.swift */,
 				071511CD1E5260230003576F /* RhythmSpelling.swift */,
 			);
@@ -396,6 +400,7 @@
 			files = (
 				071511C91E525F100003576F /* RhythmSpelling+BeamJunction.swift in Sources */,
 				071511CC1E525F3A0003576F /* RhythmSpelling+TieState.swift in Sources */,
+				071511DB1E5285740003576F /* RhythmSpelling+TupletBracketModel.swift in Sources */,
 				071511CF1E5260230003576F /* RhythmSpelling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +411,7 @@
 			files = (
 				071511C81E525F100003576F /* RhythmSpelling+BeamJunction.swift in Sources */,
 				071511CB1E525F3A0003576F /* RhythmSpelling+TieState.swift in Sources */,
+				071511DA1E5285740003576F /* RhythmSpelling+TupletBracketModel.swift in Sources */,
 				071511CE1E5260230003576F /* RhythmSpelling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
