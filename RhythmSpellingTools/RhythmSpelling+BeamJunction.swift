@@ -77,8 +77,8 @@ extension RhythmSpelling.BeamJunction {
         func middle(_ prev: Int, _ cur: Int, _ next: Int) -> Ranges {
             
             let maintain = min(prev,cur,next)
-            let startAmount = max(0,min(cur,next) - prev)
-            let stopAmount = max(0,min(cur,prev) - next)
+            let startAmount = max(0, min(cur,next) - prev)
+            let stopAmount = max(0, min(cur,prev) - next)
             let beamletAmount = cur - max(prev,next)
 
             let maintainRange = 1 ... min(prev,cur,next)
@@ -127,7 +127,6 @@ extension RhythmSpelling.BeamJunction {
         var result: [Int: State] = [:]
         
         let (start, stop, maintain, beamlets) = ranges(prev,cur,next)
-        
         start?.forEach { result[$0] = .start }
         stop?.forEach { result[$0] = .stop }
         maintain?.forEach { result[$0] = .maintain }
