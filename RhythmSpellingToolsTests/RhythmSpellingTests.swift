@@ -120,7 +120,7 @@ class RhythmSpellingTests: XCTestCase {
             [1: .maintain, 2: .start, 3: .beamlet],
             [1: .stop, 2: .stop]
         ]
-        
+
         XCTAssertEqual(beaming, expectedStates.map(RhythmSpelling.BeamJunction.init))
     }
     
@@ -134,7 +134,7 @@ class RhythmSpellingTests: XCTestCase {
             [1: .maintain],
             [1: .stop, 2: .beamlet, 3: .beamlet, 4: .beamlet]
         ]
-        
+
         XCTAssertEqual(beaming, expectedStates.map(RhythmSpelling.BeamJunction.init))
     }
     
@@ -148,7 +148,7 @@ class RhythmSpellingTests: XCTestCase {
             [1: .maintain, 2: .stop, 3: .beamlet],
             [1: .stop]
         ]
-        
+
         XCTAssertEqual(beaming, expectedStates.map(RhythmSpelling.BeamJunction.init))
     }
     
@@ -159,8 +159,8 @@ class RhythmSpellingTests: XCTestCase {
         
         let expectedStates: [[Int: RhythmSpelling.BeamJunction.State]] = [
             [1: .start], // 1
-            [1: .maintain, 2: .start, 3: .beamlet], // 2
-            [1: .maintain, 2: .maintain], // 3
+            [1: .maintain, 2: .start, 3: .beamlet], // 3
+            [1: .maintain, 2: .maintain], // 2
             [1: .maintain, 2: .maintain], // 2
             [1: .maintain, 2: .maintain, 3: .start, 4: .beamlet], // 4
             [1: .maintain, 2: .maintain, 3: .maintain], // 3
