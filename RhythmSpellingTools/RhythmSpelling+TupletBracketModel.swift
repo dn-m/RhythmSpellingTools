@@ -33,6 +33,13 @@ extension RhythmSpelling.Group {
     }
 }
 
+extension RhythmSpelling.Group: Equatable {
+    
+    public static func == (lhs: RhythmSpelling.Group, rhs: RhythmSpelling.Group) -> Bool {
+        return lhs.duration == rhs.duration && lhs.contentsSum == rhs.contentsSum
+    }
+}
+
 extension RhythmSpelling.Group: CustomStringConvertible {
     
     public var description: String {

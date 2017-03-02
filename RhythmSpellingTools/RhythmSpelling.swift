@@ -63,8 +63,10 @@ extension RhythmSpelling: Equatable {
     // MARK: - Equatable
     
     /// - returns: `true` if `RhythmSpelling` values are equivalent. Otherwise, `false`.
+    ///
+    /// - FIXME: `Groups` not yet equatable
     public static func == (lhs: RhythmSpelling, rhs: RhythmSpelling) -> Bool {
-        return lhs.contexts == rhs.contexts
+        return lhs.contexts == rhs.contexts /*&& lhs.groups == rhs.groups*/
     }
 }
 
