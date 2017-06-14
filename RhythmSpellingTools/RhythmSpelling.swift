@@ -47,7 +47,6 @@ public struct RhythmSpelling {
     public init(_ rhythmTree: RhythmTree<Int>) {
         
         let leaves = rhythmTree.metricalDurationTree.leaves
-        
         let junctions = makeJunctions(leaves)
         let tieStates = makeTieStates(rhythmTree.leafContexts)
         let dots = leaves.map(dotCount)
@@ -134,8 +133,7 @@ internal func makeGroups(_ tree: MetricalDurationTree)
         case .branch(_, let trees):
             
             let group = RhythmSpelling.Group(tree)
-            let leavesCount = tree.leaves.count
-            let range = offset ... offset + leavesCount
+            let range = offset ... offset + (tree.leaves.count - 1)
 
             // Replace with `Tree.branches`
             let trees = trees.filter {

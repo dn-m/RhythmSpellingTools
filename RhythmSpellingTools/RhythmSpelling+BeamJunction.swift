@@ -81,10 +81,6 @@ extension RhythmSpelling.BeamJunction {
             let stopAmount = max(0, min(cur,prev) - next)
             let beamletAmount = cur - max(prev,next)
 
-            let maintainRange = 1 ... min(prev,cur,next)
-            let startRange = startAmount > 0 ? (maintain + 1) ... maintain + startAmount : nil
-            let stopRange = stopAmount > 0 ? (maintain + 1) ... maintain + stopAmount : nil
-
             var beamletRange: CountableClosedRange<Int>? {
                 
                 guard beamletAmount > 0 else {
@@ -95,7 +91,12 @@ extension RhythmSpelling.BeamJunction {
                 return (lowerBound + 2) ... (lowerBound + 1) + beamletAmount
             }
             
-            return (start: startRange, stop: stopRange, maintain: maintainRange, beamlet: beamletRange)
+            return (
+                start: startAmount > 0 ? (maintain + 1) ... maintain + startAmount : nil,
+                stop: stopAmount > 0 ? (maintain + 1) ... maintain + stopAmount : nil,
+                maintain: 1 ... min(prev,cur,next),
+                beamlet: beamletRange
+            )
         }
         
         /// - returns: `Ranges` for a last value.
@@ -124,8 +125,8 @@ extension RhythmSpelling.BeamJunction {
             }
         }
         
+        // TODO: Refactor
         var result: [Int: State] = [:]
-        
         let (start, stop, maintain, beamlets) = ranges(prev,cur,next)
         start?.forEach { result[$0] = .start }
         stop?.forEach { result[$0] = .stop }
