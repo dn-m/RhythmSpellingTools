@@ -17,7 +17,7 @@ public struct RhythmSpelling {
     /// Context for a single event in a `RhythmSpelling`.
     ///
     /// - TODO: Rename. Use `Context` for type that nests a value of the containing type.
-    public struct Context {
+    public struct Item {
         
         /// The actions necessary to render beams.
         let beamJunction: BeamJunction
@@ -32,7 +32,7 @@ public struct RhythmSpelling {
     // MARK: - Instance Properties
     
     /// `RhythmSpelling.Context` values for each leaf.
-    fileprivate let contexts: [Context]
+    fileprivate let contexts: [Item]
     
     /// `Tree` structure which contains `Group` information, along with its span in terms of
     /// indices of leaves.
@@ -41,7 +41,7 @@ public struct RhythmSpelling {
     // MARK: - Initializers
     
     /// Creates a `RhythmSpelling` with the given `contexts`, and `groups`.
-    public init(contexts: [Context], groups: Grouping) {
+    public init(contexts: [Item], groups: Grouping) {
         self.contexts = contexts
         self.groups = groups
     }
@@ -55,7 +55,7 @@ public struct RhythmSpelling {
         let junctions = makeJunctions(leaves)
         let tieStates = makeTieStates(rhythmTree.leafContexts)
         let dots = leaves.map(dotCount)
-        let contexts = zip(junctions, tieStates, dots).map(Context.init)
+        let contexts = zip(junctions, tieStates, dots).map(Item.init)
         let groups = makeGroups(rhythmTree.metricalDurationTree)
         self.init(contexts: contexts, groups: groups)
     }
@@ -83,12 +83,12 @@ extension RhythmSpelling: CustomStringConvertible {
     }
 }
 
-extension RhythmSpelling.Context: Equatable {
+extension RhythmSpelling.Item: Equatable {
     
     // MARK: - Equatable
     
     /// - returns: `true` if `Context` values are equivalent. Otherwise, `false`.
-    public static func == (lhs: RhythmSpelling.Context, rhs: RhythmSpelling.Context) -> Bool {
+    public static func == (lhs: RhythmSpelling.Item, rhs: RhythmSpelling.Item) -> Bool {
         return (
             lhs.beamJunction == rhs.beamJunction &&
             lhs.tieState == rhs.tieState &&
