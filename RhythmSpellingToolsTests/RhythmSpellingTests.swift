@@ -120,7 +120,7 @@ class RhythmSpellingTests: XCTestCase {
             [1: .maintain, 2: .start, 3: .beamlet],
             [1: .stop, 2: .stop]
         ]
-        
+
         XCTAssertEqual(beaming, expectedStates.map(RhythmSpelling.BeamJunction.init))
     }
     
@@ -134,7 +134,7 @@ class RhythmSpellingTests: XCTestCase {
             [1: .maintain],
             [1: .stop, 2: .beamlet, 3: .beamlet, 4: .beamlet]
         ]
-        
+
         XCTAssertEqual(beaming, expectedStates.map(RhythmSpelling.BeamJunction.init))
     }
     
@@ -148,7 +148,7 @@ class RhythmSpellingTests: XCTestCase {
             [1: .maintain, 2: .stop, 3: .beamlet],
             [1: .stop]
         ]
-        
+
         XCTAssertEqual(beaming, expectedStates.map(RhythmSpelling.BeamJunction.init))
     }
     
@@ -159,8 +159,8 @@ class RhythmSpellingTests: XCTestCase {
         
         let expectedStates: [[Int: RhythmSpelling.BeamJunction.State]] = [
             [1: .start], // 1
-            [1: .maintain, 2: .start, 3: .beamlet], // 2
-            [1: .maintain, 2: .maintain], // 3
+            [1: .maintain, 2: .start, 3: .beamlet], // 3
+            [1: .maintain, 2: .maintain], // 2
             [1: .maintain, 2: .maintain], // 2
             [1: .maintain, 2: .maintain, 3: .start, 4: .beamlet], // 4
             [1: .maintain, 2: .maintain, 3: .maintain], // 3
@@ -266,9 +266,8 @@ class RhythmSpellingTests: XCTestCase {
         
         
         // Groups not yet equatable
-        let groups = Tree<(CountableClosedRange<Int>, RhythmSpelling.Group)>
-            .leaf((0...8, RhythmSpelling.Group(duration: 4/>8, contentsSum: 4)))
-        
+        let context = Group(duration: 4/>8, contentsSum: 4).context(range: 0...8)
+        let groups = Grouping.leaf(context)
         let expected = RhythmSpelling(contexts: contexts, groups: groups)
         
         XCTAssertEqual(spelling, expected)
@@ -311,19 +310,15 @@ class RhythmSpellingTests: XCTestCase {
             expectedDots
         ).map(RhythmSpelling.Context.init)
         
-        let groups = Tree<(CountableClosedRange<Int>, RhythmSpelling.Group)>
-            .leaf((0...8, RhythmSpelling.Group(duration: 4/>8, contentsSum: 4)))
+        let context = Group(duration: 4/>8, contentsSum: 4).context(range: 0...8)
+        let groups: Grouping = .leaf(context)
         
         //let expected = RhythmSpelling(contexts: contexts, groups: [])
         //XCTAssertEqual(spelling, expected)
     }
     
     func testMakeGroups() {
-        
         let tree = 1/>8 * [1,[[1,[1,1]],[1,[[1,[1,1,1]],[1,[1,1,1]]]]]]
-        
-        print(tree)
         let groups = makeGroups(tree)
-        print(groups)
     }
 }

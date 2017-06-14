@@ -15,6 +15,8 @@ public struct RhythmSpelling {
     // MARK: - Nested Types
     
     /// Context for a single event in a `RhythmSpelling`.
+    ///
+    /// - TODO: Rename. Use `Context` for type that nests a value of the containing type.
     public struct Context {
         
         /// The actions necessary to render beams.
@@ -29,14 +31,17 @@ public struct RhythmSpelling {
     
     // MARK: - Instance Properties
     
+    /// `RhythmSpelling.Context` values for each leaf.
     fileprivate let contexts: [Context]
     
-    // groups by depth
-    fileprivate let groups: Tree<(CountableClosedRange<Int>, Group)>
+    /// `Tree` structure which contains `Group` information, along with its span in terms of
+    /// indices of leaves.
+    fileprivate let groups: Grouping
     
     // MARK: - Initializers
     
-    public init(contexts: [Context], groups: Tree<(CountableClosedRange<Int>, Group)>) {
+    /// Creates a `RhythmSpelling` with the given `contexts`, and `groups`.
+    public init(contexts: [Context], groups: Grouping) {
         self.contexts = contexts
         self.groups = groups
     }
@@ -44,16 +49,14 @@ public struct RhythmSpelling {
     /// Creates a `RhythmSpelling` with the given `rhythmTree`.
     ///
     /// - TODO: Add ability to inject customized beaming algorithm.
+    /// - Note: Currently, there is a default beaming algorithm which is not customizable.
     public init(_ rhythmTree: RhythmTree<Int>) {
-        
         let leaves = rhythmTree.metricalDurationTree.leaves
-        
         let junctions = makeJunctions(leaves)
         let tieStates = makeTieStates(rhythmTree.leafContexts)
         let dots = leaves.map(dotCount)
         let contexts = zip(junctions, tieStates, dots).map(Context.init)
         let groups = makeGroups(rhythmTree.metricalDurationTree)
-
         self.init(contexts: contexts, groups: groups)
     }
 }
@@ -119,13 +122,9 @@ internal func makeJunctions(_ counts: [Int]) -> [RhythmSpelling.BeamJunction] {
     }
 }
 
-internal func makeGroups(_ tree: MetricalDurationTree)
-    -> Tree<(CountableClosedRange<Int>, RhythmSpelling.Group)>
-{
+internal func makeGroups(_ tree: MetricalDurationTree) -> Grouping {
     
-    func traverse(_ tree: MetricalDurationTree, offset: Int)
-        -> Tree<(CountableClosedRange<Int>, RhythmSpelling.Group)>
-    {
+    func traverse(_ tree: MetricalDurationTree, offset: Int) -> Grouping {
         
         switch tree {
         case .leaf:
@@ -133,9 +132,8 @@ internal func makeGroups(_ tree: MetricalDurationTree)
             
         case .branch(_, let trees):
             
-            let group = RhythmSpelling.Group(tree)
-            let leavesCount = tree.leaves.count
-            let range = offset ... offset + leavesCount
+            let group = Group(tree)
+            let range = offset ... offset + (tree.leaves.count - 1)
 
             // Replace with `Tree.branches`
             let trees = trees.filter {
@@ -148,18 +146,18 @@ internal func makeGroups(_ tree: MetricalDurationTree)
             }
 
             // Refactor this as a reduce
-            var newTrees: [Tree<(CountableClosedRange<Int>, RhythmSpelling.Group)>] = []
+            var newTrees: [Grouping] = []
             var subOffset = offset
             for subTree in trees {
                 newTrees.append(traverse(subTree, offset: subOffset))
                 subOffset += subTree.leaves.count
             }
             
-            let value = (range, group)
+            let context = Group.Context(for: group, in: range)
             if newTrees.isEmpty {
-                return .leaf(value)
+                return .leaf(context)
             } else {
-                return .branch(value, newTrees)
+                return .branch(context, newTrees)
             }
         }
     }

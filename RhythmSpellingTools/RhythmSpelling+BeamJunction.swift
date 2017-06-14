@@ -36,7 +36,7 @@ extension RhythmSpelling {
         
         // MARK: - Initializers
         
-        /// Creates a `Junction` with a mapping of `State` to beam-level
+        /// Creates a `Junction` with a mapping of `State` to beam-level.
         public init(_ states: [Int: State] = [:]) {
             self.states = states
         }
@@ -52,70 +52,60 @@ extension RhythmSpelling.BeamJunction {
     /// - next: Next beaming value (if it exists)
     public init(_ prev: Int?, _ cur: Int, _ next: Int?) {
         
-        typealias Ranges = [State: CountableClosedRange<Int>]
+        typealias Ranges = (
+            start: CountableClosedRange<Int>?,
+            stop: CountableClosedRange<Int>?,
+            maintain: CountableClosedRange<Int>?,
+            beamlet: CountableClosedRange<Int>?
+        )
         
         /// - returns: `Ranges` for a singleton value.
         func singleton(_ cur: Int) -> Ranges {
-            return [.beamlet: 1...cur]
+            return (start: nil, stop: nil, maintain: nil, beamlet: 1...cur)
         }
         
         /// - returns: `Ranges` for a first value.
         func first(_ cur: Int, _ next: Int) -> Ranges {
+
+            let startRange = 1...min(cur,next)
+            let beamletRange = cur > next ? (next + 1) ... cur : nil
             
-            var ranges: Ranges = [.start: 1...min(cur,next)]
-            
-            // add beamlets if necessary
-            if cur > next {
-                ranges[.beamlet] = next + 1 ... cur
-            }
-            
-            return ranges
+            return (start: startRange, stop: nil, maintain: nil, beamlet: beamletRange)
         }
         
         /// - returns: `Ranges` for a middle value.
         func middle(_ prev: Int, _ cur: Int, _ next: Int) -> Ranges {
             
-            var ranges: Ranges = [.maintain: 1...min(prev,cur,next)]
-            
-            // start new beams if necessary
-            if cur > prev {
-                ranges[.start] = prev + 1 ... cur
-            }
-            
-            // neighboring junctions, ordered
-            let (lower, higher) = ordered(prev,next)
-            
-            // stop beams if necessary
-            if cur == higher && lower != higher {
-                ranges[.stop] = lower + 1 ... higher
-            }
-            
-            if cur > higher {
+            let maintain = min(prev,cur,next)
+            let startAmount = max(0, min(cur,next) - prev)
+            let stopAmount = max(0, min(cur,prev) - next)
+            let beamletAmount = cur - max(prev,next)
+
+            var beamletRange: CountableClosedRange<Int>? {
                 
-                // add beamlets
-                ranges[.beamlet] = higher + 1 ... cur
-                
-                // stop beams
-                if prev > next {
-                    ranges[.stop] = lower + 1 ... higher
+                guard beamletAmount > 0 else {
+                    return nil
                 }
+                
+                let lowerBound = max(maintain,startAmount,stopAmount)
+                return (lowerBound + 2) ... (lowerBound + 1) + beamletAmount
             }
             
-            return ranges
+            return (
+                start: startAmount > 0 ? (maintain + 1) ... maintain + startAmount : nil,
+                stop: stopAmount > 0 ? (maintain + 1) ... maintain + stopAmount : nil,
+                maintain: 1 ... min(prev,cur,next),
+                beamlet: beamletRange
+            )
         }
         
         /// - returns: `Ranges` for a last value.
         func last(_ prev: Int, _ cur: Int) -> Ranges {
+
+            let stopRange =  1 ... min(cur,prev)
+            let beamletRange = cur > prev ? (prev + 1) ... cur : nil
             
-            // stop beams
-            var ranges: Ranges = [.stop: 1...min(cur,prev)]
-            
-            // add beamlets if necessary
-            if cur > prev {
-                ranges[.beamlet] = prev + 1 ... cur
-            }
-            
-            return ranges
+            return (start: nil, stop: stopRange, maintain: nil, beamlet: beamletRange)
         }
         
         /// - returns: `Ranges` for the given context.
@@ -135,18 +125,15 @@ extension RhythmSpelling.BeamJunction {
             }
         }
         
-        /// Apply the states to the levels in each range
-        let states: [Int: State] = ranges(prev,cur,next).reduce([:]) { accum, cur in
-            
-            let (state, range) = cur
-            
-            var dict = accum
-            range.forEach { dict[$0] = state }
-            
-            return dict
-        }
+        // TODO: Refactor
+        var result: [Int: State] = [:]
+        let (start, stop, maintain, beamlets) = ranges(prev,cur,next)
+        start?.forEach { result[$0] = .start }
+        stop?.forEach { result[$0] = .stop }
+        maintain?.forEach { result[$0] = .maintain }
+        beamlets?.forEach { result[$0] = .beamlet }
         
-        self.init(states)
+        self.init(result)
     }
 }
 
