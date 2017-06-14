@@ -262,7 +262,7 @@ class RhythmSpellingTests: XCTestCase {
             expectedBeamJunctions,
             expectedTieStates,
             expectedDots
-        ).map(RhythmSpelling.Context.init)
+        ).map(RhythmSpelling.Item.init)
         
         
         // Groups not yet equatable
@@ -308,7 +308,7 @@ class RhythmSpellingTests: XCTestCase {
             expectedBeamJunctions,
             expectedTieStates,
             expectedDots
-        ).map(RhythmSpelling.Context.init)
+        ).map(RhythmSpelling.Item.init)
         
         let context = Group(duration: 4/>8, contentsSum: 4).context(range: 0...8)
         let groups: Grouping = .leaf(context)
