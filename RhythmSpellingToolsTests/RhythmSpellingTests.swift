@@ -266,9 +266,8 @@ class RhythmSpellingTests: XCTestCase {
         
         
         // Groups not yet equatable
-        let groups = Tree<(CountableClosedRange<Int>, RhythmSpelling.Group)>
-            .leaf((0...8, RhythmSpelling.Group(duration: 4/>8, contentsSum: 4)))
-        
+        let context = Group(duration: 4/>8, contentsSum: 4).context(range: 0...8)
+        let groups = Grouping.leaf(context)
         let expected = RhythmSpelling(contexts: contexts, groups: groups)
         
         XCTAssertEqual(spelling, expected)
@@ -311,19 +310,15 @@ class RhythmSpellingTests: XCTestCase {
             expectedDots
         ).map(RhythmSpelling.Context.init)
         
-        let groups = Tree<(CountableClosedRange<Int>, RhythmSpelling.Group)>
-            .leaf((0...8, RhythmSpelling.Group(duration: 4/>8, contentsSum: 4)))
+        let context = Group(duration: 4/>8, contentsSum: 4).context(range: 0...8)
+        let groups: Grouping = .leaf(context)
         
         //let expected = RhythmSpelling(contexts: contexts, groups: [])
         //XCTAssertEqual(spelling, expected)
     }
     
     func testMakeGroups() {
-        
         let tree = 1/>8 * [1,[[1,[1,1]],[1,[[1,[1,1,1]],[1,[1,1,1]]]]]]
-        
-        print(tree)
         let groups = makeGroups(tree)
-        print(groups)
     }
 }
