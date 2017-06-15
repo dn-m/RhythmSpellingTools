@@ -67,7 +67,15 @@ extension RhythmSpelling.BeamJunction {
         /// - returns: `Ranges` for a first value.
         func first(_ cur: Int, _ next: Int) -> Ranges {
 
-            let startRange = 1...min(cur,next)
+            guard cur > 0 else {
+                return (start: nil, stop: nil, maintain: nil, beamlet: nil)
+            }
+            
+            guard next > 0 else {
+                return (start: nil, stop: nil, maintain: nil, beamlet: 1...cur)
+            }
+            
+            let startRange = 1 ... min(cur,next)
             let beamletRange = cur > next ? (next + 1) ... cur : nil
             
             return (start: startRange, stop: nil, maintain: nil, beamlet: beamletRange)
@@ -75,7 +83,53 @@ extension RhythmSpelling.BeamJunction {
         
         /// - returns: `Ranges` for a middle value.
         func middle(_ prev: Int, _ cur: Int, _ next: Int) -> Ranges {
+
             
+            
+            guard cur > 0 else {
+                return (start: nil, stop: nil, maintain: nil, beamlet: nil)
+            }
+            
+            guard prev > 0 else {
+                
+                if next <= 0 {
+                    return (
+                        start: nil,
+                        stop: nil,
+                        maintain: nil,
+                        beamlet: (cur - next) > 0 ? 0 ... (cur - next) : nil
+                    )
+                }
+                
+                return (
+                    start: 1 ... next,
+                    stop: nil,
+                    maintain: nil,
+                    beamlet: (cur - next) > 0 ? 0 ... (cur - next) : nil
+                )
+            }
+            
+
+            
+            guard next > 0 else {
+                
+                if prev <= 0 {
+                    return (
+                        start: nil,
+                        stop: nil,
+                        maintain: nil,
+                        beamlet: (cur - next) > 0 ? 0 ... (cur - next) : nil
+                    )
+                }
+                
+                return (
+                    start: nil,
+                    stop: 1 ... prev,
+                    maintain: nil,
+                    beamlet: (cur - prev) > 0 ? 1 ... (cur - prev) : nil
+                )
+            }
+
             let maintain = min(prev,cur,next)
             let startAmount = max(0, min(cur,next) - prev)
             let stopAmount = max(0, min(cur,prev) - next)
@@ -101,6 +155,14 @@ extension RhythmSpelling.BeamJunction {
         
         /// - returns: `Ranges` for a last value.
         func last(_ prev: Int, _ cur: Int) -> Ranges {
+            
+            guard cur > 0 else {
+                return (start: nil, stop: nil, maintain: nil, beamlet: nil)
+            }
+            
+            guard prev > 0 else {
+                return (start: nil, stop: nil, maintain: nil, beamlet: 1...cur)
+            }
 
             let stopRange =  1 ... min(cur,prev)
             let beamletRange = cur > prev ? (prev + 1) ... cur : nil

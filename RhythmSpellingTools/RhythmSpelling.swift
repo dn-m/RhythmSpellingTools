@@ -32,7 +32,7 @@ public struct RhythmSpelling {
     // MARK: - Instance Properties
     
     /// `RhythmSpelling.Context` values for each leaf.
-    fileprivate let contexts: [Item]
+    fileprivate let items: [Item]
     
     /// `Tree` structure which contains `Group` information, along with its span in terms of
     /// indices of leaves.
@@ -41,8 +41,8 @@ public struct RhythmSpelling {
     // MARK: - Initializers
     
     /// Creates a `RhythmSpelling` with the given `contexts`, and `groups`.
-    public init(contexts: [Item], groups: Grouping) {
-        self.contexts = contexts
+    public init(items: [Item], groups: Grouping) {
+        self.items = items
         self.groups = groups
     }
     
@@ -55,9 +55,9 @@ public struct RhythmSpelling {
         let junctions = makeJunctions(leaves)
         let tieStates = makeTieStates(rhythmTree.leafContexts)
         let dots = leaves.map(dotCount)
-        let contexts = zip(junctions, tieStates, dots).map(Item.init)
+        let items = zip(junctions, tieStates, dots).map(Item.init)
         let groups = makeGroups(rhythmTree.metricalDurationTree)
-        self.init(contexts: contexts, groups: groups)
+        self.init(items: items, groups: groups)
     }
 }
 
@@ -69,7 +69,7 @@ extension RhythmSpelling: Equatable {
     ///
     /// - FIXME: `Groups` not yet equatable
     public static func == (lhs: RhythmSpelling, rhs: RhythmSpelling) -> Bool {
-        return lhs.contexts == rhs.contexts /*&& lhs.groups == rhs.groups*/
+        return lhs.items == rhs.items /*&& lhs.groups == rhs.groups*/
     }
 }
 
@@ -79,7 +79,7 @@ extension RhythmSpelling: CustomStringConvertible {
     
     /// Printed description.
     public var description: String {
-        return contexts.description
+        return items.description
     }
 }
 

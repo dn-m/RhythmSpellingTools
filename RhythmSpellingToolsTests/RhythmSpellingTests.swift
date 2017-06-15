@@ -172,6 +172,83 @@ class RhythmSpellingTests: XCTestCase {
         XCTAssertEqual(beaming, expectedStates.map(RhythmSpelling.BeamJunction.init))
     }
     
+    func testMakeJunctionsQuarterNotesHomogenous() {
+        let durationTree = 4/>4 * [1,1,1,1]
+        let contexts = durationTree.leaves.map { _ in MetricalContext.instance(.event(0)) }
+        let rhythmTree = RhythmTree(durationTree, contexts)
+        let spelling = RhythmSpelling(rhythmTree)
+    }
+    
+    func testMakeJunctionsHeterogenousGreaterAndLessThanQuarterNotes() {
+        let durationTree = 4/>8 * [1,1,4,1,1]
+        let junctions = makeJunctions(durationTree.leaves)
+        
+        let expected = [
+            [1: .start, 2: .start],
+            [1: .stop, 2: .stop],
+            [:],
+            [1: .start, 2: .start],
+            [1: .stop, 2: .stop],
+        ].map(RhythmSpelling.BeamJunction.init)
+        
+        XCTAssertEqual(junctions, expected)
+    }
+    
+    func testMakeJunctionsShiftingHeterogeneousGreaterAndLessThanQuarterNotes() {
+        
+        let durationTrees = [
+            [4,1,1,1,1],
+            [1,4,1,1,1],
+            [1,1,4,1,1],
+            [1,1,1,4,1],
+            [1,1,1,1,4]
+        ].map { 4/>8 * $0 }
+        
+        let junctions = durationTrees.map { makeJunctions($0.leaves) }
+        
+        let expected = [
+            [
+                [:],
+                [1: .start, 2: .start],
+                [1: .maintain, 2: .maintain],
+                [1: .maintain, 2: .maintain],
+                [1: .stop, 2: .stop]
+            ],
+            [
+                [1: .beamlet, 2: .beamlet],
+                [:],
+                [1: .start, 2: .start],
+                [1: .maintain, 2: .maintain],
+                [1: .stop, 2: .stop]
+            ],
+            [
+                [1: .start, 2: .start],
+                [1: .stop, 2: .stop],
+                [:],
+                [1: .start, 2: .start],
+                [1: .stop, 2: .stop]
+            ],
+            [
+                [1: .start, 2: .start],
+                [1: .maintain, 2: .maintain],
+                [1: .stop, 2: .stop],
+                [:],
+                [1: .beamlet, 2: .beamlet]
+            ],
+            [
+                [1: .start, 2: .start],
+                [1: .maintain, 2: .maintain],
+                [1: .maintain, 2: .maintain],
+                [1: .stop, 2: .stop],
+                [:]
+            ]
+        ].map { $0.map(RhythmSpelling.BeamJunction.init) }
+        
+        zip(junctions, expected).forEach { a,b in
+            XCTAssertEqual(a,b)
+        }
+    }
+    
     func testTieStateAllNones() {
         
         let contexts: [MetricalContext<Int>] = [
@@ -258,17 +335,16 @@ class RhythmSpellingTests: XCTestCase {
         
         let expectedDots = [0,0,0,0]
         
-        let contexts = zip(
+        let items = zip(
             expectedBeamJunctions,
             expectedTieStates,
             expectedDots
         ).map(RhythmSpelling.Item.init)
         
-        
         // Groups not yet equatable
         let context = Group(duration: 4/>8, contentsSum: 4).context(range: 0...8)
         let groups = Grouping.leaf(context)
-        let expected = RhythmSpelling(contexts: contexts, groups: groups)
+        let expected = RhythmSpelling(items: items, groups: groups)
         
         XCTAssertEqual(spelling, expected)
     }
