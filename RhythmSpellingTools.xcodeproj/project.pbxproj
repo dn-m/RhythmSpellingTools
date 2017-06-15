@@ -25,6 +25,8 @@
 		07ADE7031E4F901100600BED /* ArithmeticTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE7001E4F901100600BED /* ArithmeticTools.framework */; };
 		07ADE7041E4F901100600BED /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE7011E4F901100600BED /* Collections.framework */; };
 		07ADE7051E4F901100600BED /* Rhythm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE7021E4F901100600BED /* Rhythm.framework */; };
+		07E2E78A1EF2D995004D67B2 /* RhythmSpellingCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2E7891EF2D995004D67B2 /* RhythmSpellingCollectionTests.swift */; };
+		07E2E78B1EF2D995004D67B2 /* RhythmSpellingCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2E7891EF2D995004D67B2 /* RhythmSpellingCollectionTests.swift */; };
 		07E34EF71EF2C048003A38B6 /* SpelledRhythm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E34EF61EF2C048003A38B6 /* SpelledRhythm.swift */; };
 		07E34EF81EF2C048003A38B6 /* SpelledRhythm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E34EF61EF2C048003A38B6 /* SpelledRhythm.swift */; };
 		3ECCB6FE9955D1525FCC360D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D5872377F890B436A97FB5 /* Cocoa.framework */; };
@@ -64,6 +66,7 @@
 		07ADE7001E4F901100600BED /* ArithmeticTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArithmeticTools.framework; path = Carthage/Build/Mac/ArithmeticTools.framework; sourceTree = "<group>"; };
 		07ADE7011E4F901100600BED /* Collections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collections.framework; path = Carthage/Build/Mac/Collections.framework; sourceTree = "<group>"; };
 		07ADE7021E4F901100600BED /* Rhythm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rhythm.framework; path = Carthage/Build/Mac/Rhythm.framework; sourceTree = "<group>"; };
+		07E2E7891EF2D995004D67B2 /* RhythmSpellingCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RhythmSpellingCollectionTests.swift; path = RhythmSpellingToolsTests/RhythmSpellingCollectionTests.swift; sourceTree = "<group>"; };
 		07E34EF61EF2C048003A38B6 /* SpelledRhythm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpelledRhythm.swift; path = RhythmSpellingTools/SpelledRhythm.swift; sourceTree = "<group>"; };
 		0A260833E626B4BC75F64007 /* RhythmSpellingTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RhythmSpellingTools.h; path = RhythmSpellingTools/RhythmSpellingTools.h; sourceTree = "<group>"; };
 		0EEDFEDD097C2144197C8E43 /* RhythmSpellingTools macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RhythmSpellingTools macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				071511D61E52762D0003576F /* RhythmSpellingTests.swift */,
+				07E2E7891EF2D995004D67B2 /* RhythmSpellingCollectionTests.swift */,
 				985C718BC7DD29AF4385A6CB /* Supporting Files */,
 			);
 			name = RhythmSpellingToolsTests;
@@ -387,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				071511D81E52762D0003576F /* RhythmSpellingTests.swift in Sources */,
+				07E2E78B1EF2D995004D67B2 /* RhythmSpellingCollectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				071511D71E52762D0003576F /* RhythmSpellingTests.swift in Sources */,
+				07E2E78A1EF2D995004D67B2 /* RhythmSpellingCollectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

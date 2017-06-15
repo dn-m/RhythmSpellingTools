@@ -84,8 +84,6 @@ extension RhythmSpelling.BeamJunction {
         /// - returns: `Ranges` for a middle value.
         func middle(_ prev: Int, _ cur: Int, _ next: Int) -> Ranges {
 
-            
-            
             guard cur > 0 else {
                 return (start: nil, stop: nil, maintain: nil, beamlet: nil)
             }
@@ -108,8 +106,6 @@ extension RhythmSpelling.BeamJunction {
                     beamlet: (cur - next) > 0 ? 0 ... (cur - next) : nil
                 )
             }
-            
-
             
             guard next > 0 else {
                 

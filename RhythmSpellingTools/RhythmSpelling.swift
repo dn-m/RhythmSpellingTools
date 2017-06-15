@@ -59,6 +59,25 @@ public struct RhythmSpelling {
         let groups = makeGroups(rhythmTree.metricalDurationTree)
         self.init(items: items, groups: groups)
     }
+    
+    /// Creates a `RhythmSpelling` with the given `metricalDurationTree`, mapping generic 
+    /// events as leaf contexts.
+    public init(_ metricalDurationTree: MetricalDurationTree) {
+        
+        let contexts = metricalDurationTree.leaves.map {
+            _ in MetricalContext.instance(.event(0))
+        }
+        
+        let rhythmTree = RhythmTree(metricalDurationTree, contexts)
+        self.init(rhythmTree)
+    }
+}
+
+extension RhythmSpelling:  AnyCollectionWrapping {
+    
+    public var collection: AnyCollection<Item> {
+        return AnyCollection(items)
+    }
 }
 
 extension RhythmSpelling: Equatable {
