@@ -25,6 +25,8 @@
 		07ADE7031E4F901100600BED /* ArithmeticTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE7001E4F901100600BED /* ArithmeticTools.framework */; };
 		07ADE7041E4F901100600BED /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE7011E4F901100600BED /* Collections.framework */; };
 		07ADE7051E4F901100600BED /* Rhythm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE7021E4F901100600BED /* Rhythm.framework */; };
+		07E34EF71EF2C048003A38B6 /* SpelledRhythm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E34EF61EF2C048003A38B6 /* SpelledRhythm.swift */; };
+		07E34EF81EF2C048003A38B6 /* SpelledRhythm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E34EF61EF2C048003A38B6 /* SpelledRhythm.swift */; };
 		3ECCB6FE9955D1525FCC360D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D5872377F890B436A97FB5 /* Cocoa.framework */; };
 		534FFB129E2971F31E6BAE0F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D5872377F890B436A97FB5 /* Cocoa.framework */; };
 		824859F55BC6D08D4C67F874 /* RhythmSpellingTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A260833E626B4BC75F64007 /* RhythmSpellingTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -62,6 +64,7 @@
 		07ADE7001E4F901100600BED /* ArithmeticTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArithmeticTools.framework; path = Carthage/Build/Mac/ArithmeticTools.framework; sourceTree = "<group>"; };
 		07ADE7011E4F901100600BED /* Collections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collections.framework; path = Carthage/Build/Mac/Collections.framework; sourceTree = "<group>"; };
 		07ADE7021E4F901100600BED /* Rhythm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rhythm.framework; path = Carthage/Build/Mac/Rhythm.framework; sourceTree = "<group>"; };
+		07E34EF61EF2C048003A38B6 /* SpelledRhythm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpelledRhythm.swift; path = RhythmSpellingTools/SpelledRhythm.swift; sourceTree = "<group>"; };
 		0A260833E626B4BC75F64007 /* RhythmSpellingTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RhythmSpellingTools.h; path = RhythmSpellingTools/RhythmSpellingTools.h; sourceTree = "<group>"; };
 		0EEDFEDD097C2144197C8E43 /* RhythmSpellingTools macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RhythmSpellingTools macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		245135C41B52F96A08429FD3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -151,6 +154,7 @@
 				071511D91E5285740003576F /* Group.swift */,
 				071511CA1E525F3A0003576F /* RhythmSpelling+TieState.swift */,
 				071511CD1E5260230003576F /* RhythmSpelling.swift */,
+				07E34EF61EF2C048003A38B6 /* SpelledRhythm.swift */,
 			);
 			name = RhythmSpellingTools;
 			sourceTree = "<group>";
@@ -401,6 +405,7 @@
 				071511C91E525F100003576F /* RhythmSpelling+BeamJunction.swift in Sources */,
 				071511CC1E525F3A0003576F /* RhythmSpelling+TieState.swift in Sources */,
 				071511DB1E5285740003576F /* Group.swift in Sources */,
+				07E34EF81EF2C048003A38B6 /* SpelledRhythm.swift in Sources */,
 				071511CF1E5260230003576F /* RhythmSpelling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +417,7 @@
 				071511C81E525F100003576F /* RhythmSpelling+BeamJunction.swift in Sources */,
 				071511CB1E525F3A0003576F /* RhythmSpelling+TieState.swift in Sources */,
 				071511DA1E5285740003576F /* Group.swift in Sources */,
+				07E34EF71EF2C048003A38B6 /* SpelledRhythm.swift in Sources */,
 				071511CE1E5260230003576F /* RhythmSpelling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
