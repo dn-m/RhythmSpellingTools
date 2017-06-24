@@ -20,13 +20,13 @@ public struct RhythmSpelling {
     public struct Item {
         
         /// The actions necessary to render beams.
-        let beamJunction: BeamJunction
+        public let beamJunction: BeamJunction
         
         /// The actions necessary to render ties.
-        let tieState: TieState
+        public let tieState: TieState
         
         /// The amount of dots necessary to represent duration.
-        let dots: Int
+        public let dots: Int
     }
     
     // MARK: - Instance Properties
