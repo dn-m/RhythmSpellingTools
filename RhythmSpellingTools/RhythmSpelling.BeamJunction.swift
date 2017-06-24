@@ -63,12 +63,12 @@ extension RhythmSpelling.BeamJunction {
             start: CountableClosedRange<Int>?,
             stop: CountableClosedRange<Int>?,
             maintain: CountableClosedRange<Int>?,
-            beamlet: CountableClosedRange<Int>?
+            beamlet: (CountableClosedRange<Int>, BeamletDirection)?
         )
         
         /// - returns: `Ranges` for a singleton value.
         func singleton(_ cur: Int) -> Ranges {
-            return (start: nil, stop: nil, maintain: nil, beamlet: 1...cur)
+            return (start: nil, stop: nil, maintain: nil, beamlet: (1...cur, .forward))
         }
         
         /// - returns: `Ranges` for a first value.
@@ -79,13 +79,18 @@ extension RhythmSpelling.BeamJunction {
             }
             
             guard next > 0 else {
-                return (start: nil, stop: nil, maintain: nil, beamlet: 1...cur)
+                return (start: nil, stop: nil, maintain: nil, beamlet: (1...cur, .forward))
             }
             
             let startRange = 1 ... min(cur,next)
             let beamletRange = cur > next ? (next + 1) ... cur : nil
             
-            return (start: startRange, stop: nil, maintain: nil, beamlet: beamletRange)
+            return (
+                start: startRange,
+                stop: nil,
+                maintain: nil,
+                beamlet: beamletRange == nil ? nil : (beamletRange!, .forward)
+            )
         }
         
         /// - returns: `Ranges` for a middle value.
@@ -102,7 +107,7 @@ extension RhythmSpelling.BeamJunction {
                         start: nil,
                         stop: nil,
                         maintain: nil,
-                        beamlet: (cur - next) > 0 ? 0 ... (cur - next) : nil
+                        beamlet: (cur - next) > 0 ? (0 ... (cur - next), .backward) : nil
                     )
                 }
                 
@@ -110,7 +115,7 @@ extension RhythmSpelling.BeamJunction {
                     start: 1 ... next,
                     stop: nil,
                     maintain: nil,
-                    beamlet: (cur - next) > 0 ? 0 ... (cur - next) : nil
+                    beamlet: (cur - next) > 0 ? (0 ... (cur - next), .backward) : nil
                 )
             }
             
@@ -121,7 +126,7 @@ extension RhythmSpelling.BeamJunction {
                         start: nil,
                         stop: nil,
                         maintain: nil,
-                        beamlet: (cur - next) > 0 ? 0 ... (cur - next) : nil
+                        beamlet: (cur - next) > 0 ? (0 ... (cur - next), .backward) : nil
                     )
                 }
                 
@@ -129,7 +134,7 @@ extension RhythmSpelling.BeamJunction {
                     start: nil,
                     stop: 1 ... prev,
                     maintain: nil,
-                    beamlet: (cur - prev) > 0 ? 1 ... (cur - prev) : nil
+                    beamlet: (cur - prev) > 0 ? (1 ... (cur - prev), .backward) : nil
                 )
             }
 
@@ -152,7 +157,7 @@ extension RhythmSpelling.BeamJunction {
                 start: startAmount > 0 ? (maintain + 1) ... maintain + startAmount : nil,
                 stop: stopAmount > 0 ? (maintain + 1) ... maintain + stopAmount : nil,
                 maintain: 1 ... min(prev,cur,next),
-                beamlet: beamletRange
+                beamlet: beamletRange == nil ? nil : (beamletRange!, .backward)
             )
         }
         
@@ -164,13 +169,18 @@ extension RhythmSpelling.BeamJunction {
             }
             
             guard prev > 0 else {
-                return (start: nil, stop: nil, maintain: nil, beamlet: 1...cur)
+                return (start: nil, stop: nil, maintain: nil, beamlet: (1...cur, .backward))
             }
 
             let stopRange =  1 ... min(cur,prev)
             let beamletRange = cur > prev ? (prev + 1) ... cur : nil
             
-            return (start: nil, stop: stopRange, maintain: nil, beamlet: beamletRange)
+            return (
+                start: nil,
+                stop: stopRange,
+                maintain: nil,
+                beamlet: beamletRange == nil ? nil : (beamletRange!, .backward)
+            )
         }
         
         /// - returns: `Ranges` for the given context.
@@ -195,9 +205,11 @@ extension RhythmSpelling.BeamJunction {
         start?.forEach { result[$0] = .start }
         stop?.forEach { result[$0] = .stop }
         maintain?.forEach { result[$0] = .maintain }
-        beamlets?.enumerated().forEach { b, level in
-            result[level] = .beamlet(direction: b == 0 ? .forward : .backward)
-        }
+        
+        // TODO: Refactor
+        let beamletDirection = beamlets?.1
+        let beamletRange = beamlets?.0
+        beamletRange?.forEach { result[$0] = .beamlet(direction: beamletDirection!) }
         
         self.init(result)
     }
@@ -249,8 +261,8 @@ extension RhythmSpelling.BeamJunction.State: CustomStringConvertible {
             return "stop"
         case .maintain:
             return "maintain"
-        case .beamlet:
-            return "beamlet"
+        case .beamlet(let direction):
+            return "beamlet (\(direction))"
         }
     }
 }
