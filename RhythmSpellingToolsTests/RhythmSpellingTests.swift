@@ -175,7 +175,7 @@ class RhythmSpellingTests: XCTestCase {
     func testMakeJunctionsQuarterNotesHomogenous() {
         let durationTree = 4/>4 * [1,1,1,1]
         let contexts = durationTree.leaves.map { _ in MetricalContext.instance(.event(0)) }
-        let rhythmTree = RhythmTree(durationTree, contexts)
+        let rhythmTree = Rhythm(durationTree, contexts)
         let spelling = RhythmSpelling(rhythmTree)
     }
     
@@ -316,7 +316,7 @@ class RhythmSpellingTests: XCTestCase {
             .instance(.absence)
         ]
         
-        let rhythmTree = RhythmTree(metricalDurationTree, metricalContexts)
+        let rhythmTree = Rhythm(metricalDurationTree, metricalContexts)
         let spelling = RhythmSpelling(rhythmTree)
 
         let expectedBeamJunctions: [RhythmSpelling.BeamJunction] = [
@@ -361,7 +361,7 @@ class RhythmSpellingTests: XCTestCase {
             .instance(.absence)
         ]
         
-        let rhythmTree = RhythmTree(metricalDurationTree, metricalContexts)
+        let rhythmTree = Rhythm(metricalDurationTree, metricalContexts)
         let spelling = RhythmSpelling(rhythmTree)
         
         let expectedBeamJunctions: [RhythmSpelling.BeamJunction] = [

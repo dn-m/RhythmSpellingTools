@@ -13,12 +13,12 @@ public struct SpelledRhythm {
     // MARK: - Instance Properties
     
     // Constrain to `Int` for now.
-    public let rhythm: RhythmTree<Int>
+    public let rhythm: Rhythm<Int>
     public let spelling: RhythmSpelling
     
     // MARK: - Initializers
     
-    public init(rhythm: RhythmTree<Int>, spelling: RhythmSpelling) {
+    public init(rhythm: Rhythm<Int>, spelling: RhythmSpelling) {
         self.rhythm = rhythm
         self.spelling = spelling
     }

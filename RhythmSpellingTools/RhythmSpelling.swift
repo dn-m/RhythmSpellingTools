@@ -50,13 +50,13 @@ public struct RhythmSpelling {
     ///
     /// - TODO: Add ability to inject customized beaming algorithm.
     /// - Note: Currently, there is a default beaming algorithm which is not customizable.
-    public init(_ rhythmTree: RhythmTree<Int>) {
-        let leaves = rhythmTree.metricalDurationTree.leaves
+    public init(_ rhythm: Rhythm<Int>) {
+        let leaves = rhythm.metricalDurationTree.leaves
         let junctions = makeJunctions(leaves)
-        let tieStates = makeTieStates(rhythmTree.leafContexts)
+        let tieStates = makeTieStates(rhythm.leaves.map { $0.context })
         let dots = leaves.map(dotCount)
         let items = zip(junctions, tieStates, dots).map(Item.init)
-        let groups = makeGroups(rhythmTree.metricalDurationTree)
+        let groups = makeGroups(rhythm.metricalDurationTree)
         self.init(items: items, groups: groups)
     }
     
@@ -68,12 +68,12 @@ public struct RhythmSpelling {
             _ in MetricalContext.instance(.event(0))
         }
         
-        let rhythmTree = RhythmTree(metricalDurationTree, contexts)
+        let rhythmTree = Rhythm(metricalDurationTree, contexts)
         self.init(rhythmTree)
     }
 }
 
-extension RhythmSpelling:  AnyCollectionWrapping {
+extension RhythmSpelling: AnyCollectionWrapping {
     
     public var collection: AnyCollection<Item> {
         return AnyCollection(items)

@@ -9,7 +9,7 @@
 import Collections
 import Rhythm
 
-public typealias Grouping = Tree<Group.Context>
+public typealias Grouping = Tree<Group.Context,Group.Context>
 
 /// Information necessary to render a tuplet bracket.
 public struct Group {
