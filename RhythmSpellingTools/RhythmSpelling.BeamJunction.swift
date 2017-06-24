@@ -16,9 +16,9 @@ extension RhythmSpelling {
     public struct BeamJunction {
         
         /// Whether a beamlet is pointed forward or backward.
-        public enum BeamletDirection {
-            case forward
-            case backward
+        public enum BeamletDirection: Double {
+            case forward = 1
+            case backward = -1
         }
         
         /// Whether to start, stop, or maintain a beam for a given beam-level
