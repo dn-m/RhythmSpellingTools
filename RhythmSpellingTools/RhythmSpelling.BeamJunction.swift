@@ -175,7 +175,6 @@ extension RhythmSpelling.BeamJunction {
         
         /// - returns: `Ranges` for the given context.
         func ranges(_ prev: Int?, _ cur: Int, _ next: Int?) -> Ranges {
-            
             switch (prev, cur, next) {
             case (nil, cur, nil):
                 return singleton(cur)
@@ -196,7 +195,9 @@ extension RhythmSpelling.BeamJunction {
         start?.forEach { result[$0] = .start }
         stop?.forEach { result[$0] = .stop }
         maintain?.forEach { result[$0] = .maintain }
-        beamlets?.forEach { result[$0] = .beamlet(direction: .backward) }
+        beamlets?.enumerated().forEach { b, level in
+            result[level] = .beamlet(direction: b == 0 ? .forward : .backward)
+        }
         
         self.init(result)
     }
