@@ -1,5 +1,5 @@
 //
-//  SpelledRhythm+TieState.swift
+//  SpelledRhythm.TieState.swift
 //  RhythmSpellingTools
 //
 //  Created by James Bean on 2/13/17.
