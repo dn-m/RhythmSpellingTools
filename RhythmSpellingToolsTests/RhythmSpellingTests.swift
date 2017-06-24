@@ -9,7 +9,7 @@
 import XCTest
 import Collections
 import Rhythm
-@testable import RhythmSpellingTools
+import RhythmSpellingTools
 
 class RhythmSpellingTests: XCTestCase {
     
@@ -394,7 +394,7 @@ class RhythmSpellingTests: XCTestCase {
     }
     
     func testMakeGroups() {
-        let tree = 1/>8 * [1,[[1,[1,1]],[1,[[1,[1,1,1]],[1,[1,1,1]]]]]]
-        let groups = makeGroups(tree)
+        //let tree = 1/>8 * [1,[[1,[1,1]],[1,[[1,[1,1,1]],[1,[1,1,1]]]]]]
+        //let groups = makeGroups(tree)
     }
 }
