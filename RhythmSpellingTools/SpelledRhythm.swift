@@ -6,6 +6,7 @@
 //
 //
 
+import Collections
 import Rhythm
 
 public struct SpelledRhythm {
@@ -21,5 +22,16 @@ public struct SpelledRhythm {
     public init(rhythm: Rhythm<Int>, spelling: RhythmSpelling) {
         self.rhythm = rhythm
         self.spelling = spelling
+    }
+}
+
+extension SpelledRhythm: AnyCollectionWrapping {
+    
+    // MARK: - Collection
+    
+    public var collection: AnyCollection<(Double,RhythmSpelling.Item)> {
+        let offsets = rhythm.metricalDurationTree.offsets.map { $0.doubleValue }
+        let items = spelling.map { $0 }
+        return AnyCollection(Array(zip(offsets,items)))
     }
 }

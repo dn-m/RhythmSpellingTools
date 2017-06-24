@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		071511C81E525F100003576F /* RhythmSpelling+BeamJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511C71E525F100003576F /* RhythmSpelling+BeamJunction.swift */; };
-		071511C91E525F100003576F /* RhythmSpelling+BeamJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511C71E525F100003576F /* RhythmSpelling+BeamJunction.swift */; };
-		071511CB1E525F3A0003576F /* RhythmSpelling+TieState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511CA1E525F3A0003576F /* RhythmSpelling+TieState.swift */; };
-		071511CC1E525F3A0003576F /* RhythmSpelling+TieState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511CA1E525F3A0003576F /* RhythmSpelling+TieState.swift */; };
+		071511C81E525F100003576F /* RhythmSpelling.BeamJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511C71E525F100003576F /* RhythmSpelling.BeamJunction.swift */; };
+		071511C91E525F100003576F /* RhythmSpelling.BeamJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511C71E525F100003576F /* RhythmSpelling.BeamJunction.swift */; };
+		071511CB1E525F3A0003576F /* RhythmSpelling.TieState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511CA1E525F3A0003576F /* RhythmSpelling.TieState.swift */; };
+		071511CC1E525F3A0003576F /* RhythmSpelling.TieState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511CA1E525F3A0003576F /* RhythmSpelling.TieState.swift */; };
 		071511CE1E5260230003576F /* RhythmSpelling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511CD1E5260230003576F /* RhythmSpelling.swift */; };
 		071511CF1E5260230003576F /* RhythmSpelling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511CD1E5260230003576F /* RhythmSpelling.swift */; };
 		071511D71E52762D0003576F /* RhythmSpellingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511D61E52762D0003576F /* RhythmSpellingTests.swift */; };
 		071511D81E52762D0003576F /* RhythmSpellingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511D61E52762D0003576F /* RhythmSpellingTests.swift */; };
 		071511DA1E5285740003576F /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511D91E5285740003576F /* Group.swift */; };
 		071511DB1E5285740003576F /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071511D91E5285740003576F /* Group.swift */; };
+		07AD14D01EFEB12E007D6F42 /* SpelledRhythmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD14CF1EFEB12E007D6F42 /* SpelledRhythmTests.swift */; };
+		07AD14D11EFEB12E007D6F42 /* SpelledRhythmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD14CF1EFEB12E007D6F42 /* SpelledRhythmTests.swift */; };
 		07ADE6F81E4F8FEC00600BED /* RhythmSpellingTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64C908616E1E87C42A9ABA1 /* RhythmSpellingTools.framework */; };
 		07ADE6FC1E4F8FFA00600BED /* ArithmeticTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE6F91E4F8FFA00600BED /* ArithmeticTools.framework */; };
 		07ADE6FD1E4F8FFA00600BED /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07ADE6FA1E4F8FFA00600BED /* Collections.framework */; };
@@ -55,11 +57,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		071511C71E525F100003576F /* RhythmSpelling+BeamJunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RhythmSpelling+BeamJunction.swift"; path = "RhythmSpellingTools/RhythmSpelling+BeamJunction.swift"; sourceTree = "<group>"; };
-		071511CA1E525F3A0003576F /* RhythmSpelling+TieState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RhythmSpelling+TieState.swift"; path = "RhythmSpellingTools/RhythmSpelling+TieState.swift"; sourceTree = "<group>"; };
+		071511C71E525F100003576F /* RhythmSpelling.BeamJunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RhythmSpelling.BeamJunction.swift; path = RhythmSpellingTools/RhythmSpelling.BeamJunction.swift; sourceTree = "<group>"; };
+		071511CA1E525F3A0003576F /* RhythmSpelling.TieState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RhythmSpelling.TieState.swift; path = RhythmSpellingTools/RhythmSpelling.TieState.swift; sourceTree = "<group>"; };
 		071511CD1E5260230003576F /* RhythmSpelling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RhythmSpelling.swift; path = RhythmSpellingTools/RhythmSpelling.swift; sourceTree = "<group>"; };
 		071511D61E52762D0003576F /* RhythmSpellingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RhythmSpellingTests.swift; path = RhythmSpellingToolsTests/RhythmSpellingTests.swift; sourceTree = "<group>"; };
 		071511D91E5285740003576F /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Group.swift; path = RhythmSpellingTools/Group.swift; sourceTree = "<group>"; };
+		07AD14CF1EFEB12E007D6F42 /* SpelledRhythmTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpelledRhythmTests.swift; path = RhythmSpellingToolsTests/SpelledRhythmTests.swift; sourceTree = "<group>"; };
 		07ADE6F91E4F8FFA00600BED /* ArithmeticTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArithmeticTools.framework; path = Carthage/Build/iOS/ArithmeticTools.framework; sourceTree = "<group>"; };
 		07ADE6FA1E4F8FFA00600BED /* Collections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collections.framework; path = Carthage/Build/iOS/Collections.framework; sourceTree = "<group>"; };
 		07ADE6FB1E4F8FFA00600BED /* Rhythm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rhythm.framework; path = Carthage/Build/iOS/Rhythm.framework; sourceTree = "<group>"; };
@@ -153,9 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				A7D064E42D915C220CC05E3F /* Supporting Files */,
-				071511C71E525F100003576F /* RhythmSpelling+BeamJunction.swift */,
 				071511D91E5285740003576F /* Group.swift */,
-				071511CA1E525F3A0003576F /* RhythmSpelling+TieState.swift */,
+				071511C71E525F100003576F /* RhythmSpelling.BeamJunction.swift */,
+				071511CA1E525F3A0003576F /* RhythmSpelling.TieState.swift */,
 				071511CD1E5260230003576F /* RhythmSpelling.swift */,
 				07E34EF61EF2C048003A38B6 /* SpelledRhythm.swift */,
 			);
@@ -194,6 +197,7 @@
 			children = (
 				071511D61E52762D0003576F /* RhythmSpellingTests.swift */,
 				07E2E7891EF2D995004D67B2 /* RhythmSpellingCollectionTests.swift */,
+				07AD14CF1EFEB12E007D6F42 /* SpelledRhythmTests.swift */,
 				985C718BC7DD29AF4385A6CB /* Supporting Files */,
 			);
 			name = RhythmSpellingToolsTests;
@@ -391,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				071511D81E52762D0003576F /* RhythmSpellingTests.swift in Sources */,
+				07AD14D11EFEB12E007D6F42 /* SpelledRhythmTests.swift in Sources */,
 				07E2E78B1EF2D995004D67B2 /* RhythmSpellingCollectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				071511D71E52762D0003576F /* RhythmSpellingTests.swift in Sources */,
+				07AD14D01EFEB12E007D6F42 /* SpelledRhythmTests.swift in Sources */,
 				07E2E78A1EF2D995004D67B2 /* RhythmSpellingCollectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,8 +414,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				071511C91E525F100003576F /* RhythmSpelling+BeamJunction.swift in Sources */,
-				071511CC1E525F3A0003576F /* RhythmSpelling+TieState.swift in Sources */,
+				071511C91E525F100003576F /* RhythmSpelling.BeamJunction.swift in Sources */,
+				071511CC1E525F3A0003576F /* RhythmSpelling.TieState.swift in Sources */,
 				071511DB1E5285740003576F /* Group.swift in Sources */,
 				07E34EF81EF2C048003A38B6 /* SpelledRhythm.swift in Sources */,
 				071511CF1E5260230003576F /* RhythmSpelling.swift in Sources */,
@@ -420,8 +426,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				071511C81E525F100003576F /* RhythmSpelling+BeamJunction.swift in Sources */,
-				071511CB1E525F3A0003576F /* RhythmSpelling+TieState.swift in Sources */,
+				071511C81E525F100003576F /* RhythmSpelling.BeamJunction.swift in Sources */,
+				071511CB1E525F3A0003576F /* RhythmSpelling.TieState.swift in Sources */,
 				071511DA1E5285740003576F /* Group.swift in Sources */,
 				07E34EF71EF2C048003A38B6 /* SpelledRhythm.swift in Sources */,
 				071511CE1E5260230003576F /* RhythmSpelling.swift in Sources */,

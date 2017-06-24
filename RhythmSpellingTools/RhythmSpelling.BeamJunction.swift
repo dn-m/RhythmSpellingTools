@@ -1,5 +1,5 @@
 //
-//  BeamJunction.swift
+//  RhythmSpelling.BeamJunction.swift
 //  RhythmSpellingTools
 //
 //  Created by James Bean on 2/13/17.
@@ -14,8 +14,14 @@ extension RhythmSpelling {
     /// Model of `State` values for each beam-level
     public struct BeamJunction {
         
+        /// Whether a beamlet is pointed forward or backward.
+        public enum BeamletDirection {
+            case forward
+            case backward
+        }
+        
         /// Whether to start, stop, or maintain a beam for a given beam-level
-        public enum State: String {
+        public enum State {
             
             /// Start a beam on a given level.
             case start
@@ -27,7 +33,7 @@ extension RhythmSpelling {
             case maintain
             
             /// Add a beamlet on a given level.
-            case beamlet
+            case beamlet(direction: BeamletDirection)
         }
         
         // MARK: - Instance Properties
@@ -189,7 +195,7 @@ extension RhythmSpelling.BeamJunction {
         start?.forEach { result[$0] = .start }
         stop?.forEach { result[$0] = .stop }
         maintain?.forEach { result[$0] = .maintain }
-        beamlets?.forEach { result[$0] = .beamlet }
+        beamlets?.forEach { result[$0] = .beamlet(direction: .backward) }
         
         self.init(result)
     }
@@ -202,6 +208,24 @@ extension RhythmSpelling.BeamJunction: Equatable {
         -> Bool
     {
         return lhs.states == rhs.states
+    }
+}
+
+extension RhythmSpelling.BeamJunction.State: Equatable {
+    
+    public static func == (
+        lhs: RhythmSpelling.BeamJunction.State,
+        rhs: RhythmSpelling.BeamJunction.State
+    ) -> Bool
+    {
+        switch (lhs,rhs) {
+        case (.start, start), (.stop, .stop), (.maintain, .maintain):
+            return true
+        case (.beamlet(let a), .beamlet(let b)):
+            return a == b
+        default:
+            return false
+        }
     }
 }
 
