@@ -6,6 +6,7 @@
 //
 //
 
+import Collections
 import Rhythm
 import ArithmeticTools
 
@@ -38,7 +39,7 @@ extension RhythmSpelling {
         
         // MARK: - Instance Properties
         
-        fileprivate let states: [Int: State]
+        public let states: [Int: State]
         
         // MARK: - Initializers
         
