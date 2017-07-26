@@ -73,10 +73,10 @@ public struct RhythmSpelling {
     }
 }
 
-extension RhythmSpelling: AnyCollectionWrapping {
+extension RhythmSpelling: CollectionWrapping {
     
-    public var collection: AnyCollection<Item> {
-        return AnyCollection(items)
+    public var base: [Item] {
+        return items
     }
 }
 

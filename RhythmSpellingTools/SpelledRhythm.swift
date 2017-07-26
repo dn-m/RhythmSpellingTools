@@ -25,15 +25,15 @@ public struct SpelledRhythm {
     }
 }
 
-extension SpelledRhythm: AnyCollectionWrapping {
+extension SpelledRhythm: CollectionWrapping {
     
     // MARK: - Collection
     
     /// - Returns: A collection of triples containing the offset, rhythm leaf, and rhythm 
     /// spelling item for each leaf of the spelled rhythm.
-    public var collection: AnyCollection<(Double,RhythmLeaf<Int>,RhythmSpelling.Item)> {
+    public var base: [(Double,RhythmLeaf<Int>,RhythmSpelling.Item)] {
         let offsets = rhythm.metricalDurationTree.offsets.map { $0.doubleValue }
         let items = spelling.map { $0 }
-        return AnyCollection(Array(zip(offsets, rhythm.leaves, items)))
+        return Array(zip(offsets, rhythm.leaves, items))
     }
 }
